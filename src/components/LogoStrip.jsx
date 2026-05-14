@@ -16,17 +16,17 @@ export function LogoStrip() {
     <motion.section
       ref={ref}
       style={{ opacity }}
-      className="relative z-10 overflow-hidden border-y border-line py-12"
+      className="relative z-10 overflow-hidden border-y border-line py-12 [contain:paint]"
     >
       <div className="marquee-track">
         {doubled.map((logo, i) => (
           <div
-            key={i}
+            key={`${logo.name}-${i}`}
             className="flex flex-shrink-0 items-center justify-center px-10 lg:px-14"
           >
             <img
-              src={logo}
-              alt={`Client logo ${(i % clientLogos.length) + 1}`}
+              src={logo.src}
+              alt={logo.name}
               className="h-10 w-auto opacity-80 transition-all duration-500 hover:opacity-100 hover:scale-105 lg:h-12"
               loading="lazy"
             />

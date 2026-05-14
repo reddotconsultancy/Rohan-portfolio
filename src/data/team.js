@@ -55,53 +55,54 @@ export const whyItems = [
 
 export const projects = [
   {
-    title: "MyTelemedicine",
-    category: "AI & Healthcare",
+    title: "SIAA",
+    category: "Campaign Strategy",
     description:
-      "Built the go-to-market engine and AI-powered patient engagement system from zero to acquisition.",
-    image: "/images/IMG_6207.JPG.jpeg",
-  },
-  {
-    title: "IFF",
-    category: "Enterprise GTM",
-    description:
-      "Structured a complete B2B sales function and alliance strategy for a Fortune 500 engagement.",
-    image: "/images/IMG_6208.JPG.jpeg",
-  },
-  {
-    title: "Belkin",
-    category: "Product & Brand",
-    description:
-      "Led product positioning and inbound strategy that drove double-digit pipeline growth.",
+      "Built audience personas, campaign messaging, and search-led acquisition strategy for a national producer alliance.",
     image: "/images/IMG_6210.png",
   },
   {
-    title: "Agentic Voice Platform",
-    category: "GenAI & Agents",
+    title: "MyTelemedicine",
+    category: "Healthcare Growth",
     description:
-      "Co-architected a production-grade voice AI platform handling 180,000+ live calls at enterprise scale.",
-    image: "/images/IMG_9361.png",
+      "Designed paid search, traffic allocation, and acquisition strategy for a white-label telehealth platform.",
+    image: "/images/IMG_6208.JPG.jpeg",
   },
   {
-    title: "Enterprise SaaS Scale-up",
-    category: "Revenue & Growth",
+    title: "IFF",
+    category: "Global Brand",
     description:
-      "Took a startup from first revenue to seven-figure ARR with end-to-end GTM execution.",
+      "Created a comprehensive brand playbook and unified positioning framework for a global scent and taste leader.",
+    image: "/images/IMG_6207.JPG.jpeg",
+  },
+  {
+    title: "Belkin",
+    category: "Brand Systems",
+    description:
+      "Created practical brand and messaging systems for a consumer electronics partner network.",
     image: "/images/IMG_9362.png",
+  },
+  {
+    title: "APS Payroll",
+    category: "Website & Revenue",
+    description:
+      "Rebuilt the web presence and conversion path for a long-standing HR and payroll platform.",
+    image: "/images/IMG_9361.png",
   },
 ];
 
 export const clientLogos = [
-  "/images/logos/Belkin_idRHCcazzT_0.png",
-  "/images/logos/Emaar_idXvHX22tw_0.png",
-  "/images/logos/Lenovo_Partner_idltQKJPYp_0.png",
-  "/images/logos/Procter___Gamble_Investor_Relations_idSnzkUgZS_0.png",
-  "/images/logos/Red_Bull_idCMb-1Vvp_1.png",
-  "/images/logos/The_North_Face®_Logo_1.png",
-  "/images/logos/Unilever_idKa-ZG1zZ_1.png",
-  "/images/logos/Centene_idRbNkT_6y_1.png",
-  "/images/logos/Jefferies_Financial_Group_idGeHjIkMe_1.png",
-  "/images/logos/APS_Payroll_idQ0maL20D_0.png",
+  { name: "ADB", src: "/images/logos/adbsvg.png" },
+  { name: "APS Payroll", src: "/images/logos/APS_Payroll_idQ0maL20D_0.png" },
+  { name: "Belkin", src: "/images/logos/Belkin_idRHCcazzT_0.png" },
+  { name: "Centene", src: "/images/logos/Centene_idRbNkT_6y_1.png" },
+  { name: "Emaar", src: "/images/logos/Emaar_idXvHX22tw_0.png" },
+  { name: "Jefferies Financial Group", src: "/images/logos/Jefferies_Financial_Group_idGeHjIkMe_1.png" },
+  { name: "Lenovo Partner", src: "/images/logos/Lenovo_Partner_idltQKJPYp_0.png" },
+  { name: "Procter & Gamble", src: "/images/logos/Procter___Gamble_Investor_Relations_idSnzkUgZS_0.png" },
+  { name: "Red Bull", src: "/images/logos/Red_Bull_idCMb-1Vvp_1.png" },
+  { name: "The North Face", src: "/images/logos/The_North_Face_Logo_1.png" },
+  { name: "Unilever", src: "/images/logos/Unilever_idKa-ZG1zZ_1.png" },
 ];
 
 export const expertBio = {

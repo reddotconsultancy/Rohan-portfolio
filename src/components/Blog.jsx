@@ -25,12 +25,10 @@ export function Blog() {
               initial={{
                 opacity: 0,
                 x: i % 2 === 0 ? -50 : 50,
-                filter: "blur(6px)",
               }}
               whileInView={{
                 opacity: 1,
                 x: 0,
-                filter: "blur(0px)",
               }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{

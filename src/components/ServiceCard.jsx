@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
@@ -26,6 +26,10 @@ export function ServiceCard({
   index = 0,
 }) {
   const cardRef = useRef(null);
+  const finePointerRef = useRef(true);
+  const frameRef = useRef(null);
+  const rectRef = useRef(null);
+  const latestPointRef = useRef(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -38,18 +42,51 @@ export function ServiceCard({
     damping: 30,
   });
 
-  const handleMouse = (e) => {
-    const rect = cardRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+  useEffect(() => {
+    const media = window.matchMedia("(pointer: fine)");
+    const syncPointer = () => {
+      finePointerRef.current = media.matches;
+    };
+    syncPointer();
+    media.addEventListener?.("change", syncPointer);
+
+    return () => {
+      if (frameRef.current) window.cancelAnimationFrame(frameRef.current);
+      media.removeEventListener?.("change", syncPointer);
+    };
+  }, []);
+
+  const updatePointer = () => {
+    const rect = rectRef.current;
+    const point = latestPointRef.current;
+    if (!rect || !point) return;
+
+    const x = point.x - rect.left;
+    const y = point.y - rect.top;
     mouseX.set(x);
     mouseY.set(y);
     rotateX.set(((y - rect.height / 2) / rect.height) * -6);
     rotateY.set(((x - rect.width / 2) / rect.width) * 6);
+    frameRef.current = null;
+  };
+
+  const handleEnter = () => {
+    if (!finePointerRef.current) return;
+    rectRef.current = cardRef.current?.getBoundingClientRect();
+  };
+
+  const handleMouse = (e) => {
+    if (!finePointerRef.current) return;
+    latestPointRef.current = { x: e.clientX, y: e.clientY };
+    if (!rectRef.current) rectRef.current = cardRef.current?.getBoundingClientRect();
+    if (frameRef.current) return;
+    frameRef.current = window.requestAnimationFrame(updatePointer);
   };
 
   const handleLeave = () => {
+    if (frameRef.current) window.cancelAnimationFrame(frameRef.current);
+    frameRef.current = null;
+    rectRef.current = null;
     rotateX.set(0);
     rotateY.set(0);
   };
@@ -65,14 +102,16 @@ export function ServiceCard({
         delay: index * 0.08,
         ease: [0.22, 1, 0.36, 1],
       }}
-      onMouseMove={handleMouse}
-      onMouseLeave={handleLeave}
+      onPointerEnter={handleEnter}
+      onPointerMove={handleMouse}
+      onPointerLeave={handleLeave}
       style={{
         rotateX,
         rotateY,
         transformPerspective: 800,
+        willChange: "transform",
       }}
-      className="group relative flex min-h-[400px] flex-col overflow-hidden rounded-2xl border border-line/60 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-[clamp(32px,3.5vw,52px)_clamp(24px,2.8vw,40px)] backdrop-blur-sm transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_60px_rgba(89,255,241,0.06),0_24px_72px_rgba(0,0,0,0.4)]"
+      className="group relative flex min-h-[400px] flex-col overflow-hidden rounded-2xl border border-line/60 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-[clamp(32px,3.5vw,52px)_clamp(24px,2.8vw,40px)] backdrop-blur-sm transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_44px_rgba(89,255,241,0.05),0_22px_64px_rgba(0,0,0,0.34)]"
     >
       <CardGlow mouseX={mouseX} mouseY={mouseY} />
 

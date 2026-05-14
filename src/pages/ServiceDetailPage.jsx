@@ -164,13 +164,10 @@ function HeroSection({ data, slug }) {
           >
             {Icon && (
               <motion.div
-                className="flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/30 bg-accent/10 text-accent"
+                className="flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/30 bg-accent/10 text-accent shadow-[0_0_28px_rgba(89,255,241,0.16)]"
                 animate={{
-                  boxShadow: [
-                    "0 0 20px rgba(89,255,241,0.1)",
-                    "0 0 40px rgba(89,255,241,0.25)",
-                    "0 0 20px rgba(89,255,241,0.1)",
-                  ],
+                  scale: [1, 1.035, 1],
+                  opacity: [0.86, 1, 0.86],
                 }}
                 transition={{
                   duration: 3,
@@ -190,11 +187,10 @@ function HeroSection({ data, slug }) {
 
           <motion.h1
             variants={{
-              hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+              hidden: { opacity: 0, y: 30 },
               show: {
                 opacity: 1,
                 y: 0,
-                filter: "blur(0px)",
                 transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
               },
             }}
@@ -293,13 +289,10 @@ function BadgeRibbon({ slug }) {
                   className="flex items-center gap-3 overflow-hidden rounded-2xl border border-accent/15 bg-white/[0.03] px-6 py-4 backdrop-blur-xl transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_30px_rgba(89,255,241,0.06)]"
                 >
                   <motion.div
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-accent/20 bg-accent/[0.06] text-accent"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-accent/20 bg-accent/[0.06] text-accent shadow-[0_0_14px_rgba(89,255,241,0.12)]"
                     animate={{
-                      boxShadow: [
-                        "0 0 8px rgba(89,255,241,0.05)",
-                        "0 0 18px rgba(89,255,241,0.15)",
-                        "0 0 8px rgba(89,255,241,0.05)",
-                      ],
+                      scale: [1, 1.04, 1],
+                      opacity: [0.9, 1, 0.9],
                     }}
                     transition={{
                       duration: 3,
@@ -466,14 +459,10 @@ function PracticeSection({ data, slug }) {
                   <div className="relative z-10 flex items-center gap-4">
                     {ServiceIcon && (
                       <motion.div
-                        className="flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/25 bg-accent/[0.08] text-accent"
+                        className="flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/25 bg-accent/[0.08] text-accent shadow-[0_0_22px_rgba(89,255,241,0.14)]"
                         animate={{
-                          boxShadow: [
-                            "0 0 12px rgba(89,255,241,0.08)",
-                            "0 0 28px rgba(89,255,241,0.2)",
-                            "0 0 12px rgba(89,255,241,0.08)",
-                          ],
                           y: [0, -4, 0],
+                          opacity: [0.88, 1, 0.88],
                         }}
                         transition={{
                           duration: 4,
@@ -557,12 +546,10 @@ function PracticeSection({ data, slug }) {
                   initial={{
                     opacity: 0,
                     y: 30,
-                    filter: "blur(6px)",
                   }}
                   whileInView={{
                     opacity: 1,
                     y: 0,
-                    filter: "blur(0px)",
                   }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{
@@ -701,12 +688,10 @@ function AudienceSection({ data }) {
                     initial={{
                       opacity: 0,
                       x: 40,
-                      filter: "blur(6px)",
                     }}
                     whileInView={{
                       opacity: 1,
                       x: 0,
-                      filter: "blur(0px)",
                     }}
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{
@@ -791,13 +776,10 @@ function OutcomeSection({ data }) {
             <div className="relative z-10">
               <div className="flex items-center gap-4">
                 <motion.div
-                  className="flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/30 bg-accent/10 text-accent"
+                  className="flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/30 bg-accent/10 text-accent shadow-[0_0_26px_rgba(89,255,241,0.16)]"
                   animate={{
-                    boxShadow: [
-                      "0 0 15px rgba(89,255,241,0.1)",
-                      "0 0 35px rgba(89,255,241,0.25)",
-                      "0 0 15px rgba(89,255,241,0.1)",
-                    ],
+                    scale: [1, 1.035, 1],
+                    opacity: [0.86, 1, 0.86],
                   }}
                   transition={{
                     duration: 3,
@@ -889,12 +871,10 @@ function RelatedServices({ currentSlug }) {
                 initial={{
                   opacity: 0,
                   y: 40,
-                  filter: "blur(8px)",
                 }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
-                  filter: "blur(0px)",
                 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{

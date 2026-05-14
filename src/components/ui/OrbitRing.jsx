@@ -14,7 +14,7 @@ export function OrbitRing({
       style={{ width: size, height: size }}
     >
       <motion.div
-        className="absolute inset-0 rounded-full border border-accent/[0.08]"
+        className="absolute inset-0 rounded-full border border-accent/[0.08] will-change-transform"
         animate={{ rotate: 360 }}
         transition={{
           duration,
@@ -32,16 +32,11 @@ export function OrbitRing({
           return (
             <motion.div
               key={i}
-              className="absolute h-2 w-2 rounded-full bg-accent/40"
+              className="absolute h-2 w-2 rounded-full bg-accent/40 shadow-[0_0_10px_rgba(89,255,241,0.35)] will-change-transform"
               style={{ left: x, top: y }}
               animate={{
                 opacity: [0.3, 1, 0.3],
                 scale: [0.8, 1.3, 0.8],
-                boxShadow: [
-                  "0 0 4px rgba(89,255,241,0.2)",
-                  "0 0 12px rgba(89,255,241,0.6)",
-                  "0 0 4px rgba(89,255,241,0.2)",
-                ],
               }}
               transition={{
                 duration: 3,
@@ -55,7 +50,7 @@ export function OrbitRing({
       </motion.div>
 
       <motion.div
-        className="absolute inset-[15%] rounded-full border border-accent/[0.05]"
+        className="absolute inset-[15%] rounded-full border border-accent/[0.05] will-change-transform"
         animate={{ rotate: -360 }}
         transition={{
           duration: duration * 1.5,

@@ -18,7 +18,6 @@ import { OrbitRing } from "./ui/OrbitRing";
 import { whyItems } from "../data/team";
 
 const icons = [Zap, Sparkles, ShieldCheck];
-const cardNumbers = ["01", "02", "03"];
 
 export function WhyUs() {
   const sectionRef = useRef(null);
@@ -73,12 +72,10 @@ export function WhyUs() {
                       initial={{
                         opacity: 0,
                         x: -40,
-                        filter: "blur(6px)",
                       }}
                       whileInView={{
                         opacity: 1,
                         x: 0,
-                        filter: "blur(0px)",
                       }}
                       viewport={{ once: true, margin: "-60px" }}
                       transition={{
@@ -96,9 +93,6 @@ export function WhyUs() {
                           <div className="absolute inset-0 rounded-2xl bg-accent/[0.04] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                         </div>
                         <div className="min-w-0">
-                          <span className="mb-2 inline-flex items-center rounded-full border border-white/10 bg-white/[0.035] px-3 py-1 text-[0.62rem] font-black uppercase tracking-[0.18em] text-accent/80 transition-colors duration-300 group-hover:border-accent/25 group-hover:text-accent">
-                            {cardNumbers[i]}
-                          </span>
                           <h3 className="font-heading text-[1.05rem] font-extrabold leading-snug text-text sm:text-[1.08rem]">
                             {item}
                           </h3>

@@ -44,10 +44,10 @@ function ContentCard({ card, image, icon, index, sectionProgress }) {
 
   return (
     <motion.div
-      className="group relative w-full min-w-0 flex-1"
+      className="group relative min-w-[72vw] snap-center sm:min-w-[260px] lg:min-w-0 lg:flex-1"
       style={{ y, scale, rotate }}
     >
-      <div className="relative h-[340px] overflow-hidden rounded-2xl border border-line/40 transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(89,255,241,0.08)] sm:h-[380px] lg:h-[420px]">
+      <div className="relative h-[420px] overflow-hidden rounded-2xl border border-line/40 transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(89,255,241,0.08)] sm:h-[400px] lg:h-[420px]">
         <img
           src={image}
           alt={card.title}
@@ -128,7 +128,7 @@ export function About() {
           </div>
         </SmoothReveal>
 
-        <div className="mt-14 flex gap-4 sm:gap-5 lg:mt-16 lg:gap-6">
+        <div className="custom-scrollbar -mx-6 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-8 sm:gap-5 lg:mx-0 lg:mt-16 lg:overflow-visible lg:px-0 lg:pb-0 lg:gap-6">
           {aboutCards.map((card, i) => (
             <ContentCard
               key={card.title}

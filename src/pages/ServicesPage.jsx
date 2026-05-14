@@ -63,11 +63,10 @@ function HeroBanner() {
         </motion.span>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{
             opacity: 1,
             y: 0,
-            filter: "blur(0px)",
           }}
           transition={{
             delay: 0.35,
@@ -105,11 +104,10 @@ function ServiceRow({ service, index }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50, filter: "blur(8px)" }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{
         opacity: 1,
         y: 0,
-        filter: "blur(0px)",
       }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{
@@ -186,12 +184,12 @@ function ServiceRow({ service, index }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
 
                 <motion.div
-                  className="pointer-events-none absolute inset-0"
+                  className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(89,255,241,0.045),transparent_62%)]"
                   animate={{
-                    background: [
-                      "radial-gradient(circle at 30% 50%, rgba(89,255,241,0.04), transparent 60%)",
-                      "radial-gradient(circle at 70% 50%, rgba(89,255,241,0.04), transparent 60%)",
-                      "radial-gradient(circle at 30% 50%, rgba(89,255,241,0.04), transparent 60%)",
+                    opacity: [
+                      0.35,
+                      0.75,
+                      0.35,
                     ],
                   }}
                   transition={{

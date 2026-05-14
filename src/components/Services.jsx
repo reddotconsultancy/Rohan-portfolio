@@ -9,22 +9,59 @@ import { services } from "../data/services";
 function AmbientBackground({ containerRef }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const finePointerRef = useRef(true);
+  const frameRef = useRef(null);
+  const rectRef = useRef(null);
+  const latestPointRef = useRef(null);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-    const handler = (e) => {
-      const rect = el.getBoundingClientRect();
-      x.set(e.clientX - rect.left);
-      y.set(e.clientY - rect.top);
+    const media = window.matchMedia("(pointer: fine)");
+
+    const syncPointer = () => {
+      finePointerRef.current = media.matches;
     };
-    el.addEventListener("mousemove", handler);
-    return () => el.removeEventListener("mousemove", handler);
+
+    const updateGlow = () => {
+      const rect = rectRef.current;
+      const point = latestPointRef.current;
+      if (!rect || !point) return;
+      x.set(point.x - rect.left);
+      y.set(point.y - rect.top);
+      frameRef.current = null;
+    };
+
+    const handler = (e) => {
+      if (!finePointerRef.current) return;
+      latestPointRef.current = { x: e.clientX, y: e.clientY };
+      if (!rectRef.current) rectRef.current = el.getBoundingClientRect();
+      if (frameRef.current) return;
+      frameRef.current = window.requestAnimationFrame(updateGlow);
+    };
+
+    const resetRect = () => {
+      rectRef.current = null;
+    };
+
+    syncPointer();
+    media.addEventListener?.("change", syncPointer);
+    el.addEventListener("pointerenter", resetRect, { passive: true });
+    el.addEventListener("pointermove", handler, { passive: true });
+    window.addEventListener("resize", resetRect, { passive: true });
+
+    return () => {
+      if (frameRef.current) window.cancelAnimationFrame(frameRef.current);
+      media.removeEventListener?.("change", syncPointer);
+      el.removeEventListener("pointerenter", resetRect);
+      el.removeEventListener("pointermove", handler);
+      window.removeEventListener("resize", resetRect);
+    };
   }, [containerRef, x, y]);
 
   return (
     <motion.div
-      className="pointer-events-none absolute -z-10 h-[600px] w-[600px] rounded-full opacity-[0.05]"
+      className="pointer-events-none absolute -z-10 h-[600px] w-[600px] rounded-full opacity-[0.045] will-change-transform"
       style={{
         x,
         y,

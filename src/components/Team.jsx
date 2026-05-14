@@ -37,11 +37,10 @@ export function Team() {
               {expertBio.paragraphs.map((para, i) => (
                 <motion.p
                   key={i}
-                  initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{
                     opacity: 1,
                     y: 0,
-                    filter: "blur(0px)",
                   }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{

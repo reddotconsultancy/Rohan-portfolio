@@ -32,17 +32,11 @@ export function SmoothReveal({
     direction === "left" || direction === "right" ? [xInitial, 0] : [0, 0]
   );
   const opacity = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
-  const filter = useTransform(
-    scrollYProgress,
-    [0, 0.5],
-    ["blur(8px)", "blur(0px)"]
-  );
-
   return (
     <motion.div
       ref={ref}
-      style={{ y, x, opacity, filter }}
-      className={className}
+      style={{ y, x, opacity, willChange: "transform, opacity" }}
+      className={`transform-gpu ${className}`}
     >
       {children}
     </motion.div>

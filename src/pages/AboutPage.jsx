@@ -69,7 +69,12 @@ function ChapterSection({ label, bgImage, children }) {
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
-    <div ref={ref} className="relative overflow-hidden py-20 lg:py-28">
+    <div
+      ref={ref}
+      className={`relative overflow-hidden ${
+        bgImage ? "py-20 lg:py-28" : "py-12 lg:py-16"
+      }`}
+    >
       {/* Background image — always visible, parallax movement */}
       {bgImage && (
         <motion.div className="absolute inset-0" style={{ y: bgY }}>
@@ -313,14 +318,14 @@ export function AboutPage() {
         </ChapterSection>
 
         {/* MILESTONES */}
-        <section className="relative z-10 py-14 lg:py-18">
+        <section className="relative z-10 pt-8 pb-8 lg:pt-10 lg:pb-10">
           <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="grid grid-cols-2 gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 backdrop-blur-sm sm:grid-cols-4 sm:gap-4 sm:p-6"
+              className="grid grid-cols-2 gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.025] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-sm sm:grid-cols-4 sm:gap-4 sm:p-6"
             >
               {MILESTONES.map((m, i) => {
                 const Icon = m.icon;
@@ -346,7 +351,7 @@ export function AboutPage() {
         </section>
 
         {/* QUOTE */}
-        <section className="relative z-10 py-16 lg:py-24">
+        <section className="relative z-10 pt-8 pb-14 lg:pt-10 lg:pb-20">
           <div className="pointer-events-none absolute inset-0 -z-10">
             <div className="absolute left-1/2 top-1/2 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.025] blur-[90px]" />
           </div>

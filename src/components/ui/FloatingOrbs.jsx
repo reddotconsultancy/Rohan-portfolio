@@ -53,7 +53,7 @@ export function FloatingOrbs({ count = 5, className = "" }) {
       {orbs.map((o, i) => (
         <motion.div
           key={i}
-          className="absolute rounded-full"
+          className={`absolute rounded-full will-change-transform ${i > 1 ? "max-sm:hidden" : ""}`}
           style={{
             width: o.size,
             height: o.size,
@@ -61,6 +61,7 @@ export function FloatingOrbs({ count = 5, className = "" }) {
             top: o.y,
             background: `radial-gradient(circle, ${o.color}, transparent 70%)`,
             filter: "blur(60px)",
+            contain: "paint",
           }}
           animate={{
             x: [0, 40, -30, 20, 0],
