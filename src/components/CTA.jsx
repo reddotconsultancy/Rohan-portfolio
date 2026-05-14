@@ -93,7 +93,7 @@ export function CTA() {
                     color: "#000000",
                   }}
                 >
-                  Click Here to Book a 1-on-1 Call
+                  Book a 30-min Strategy Call
                   <svg
                     className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"

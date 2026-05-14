@@ -15,7 +15,7 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About Me", href: "/about-me" },
   { label: "Services", href: "/services" },
-  { label: "Contact Us", href: "/contact-us" },
+  { label: "Work with me", href: "/contact-us" },
 ];
 
 const footerLinkClass =
@@ -266,7 +266,7 @@ export function Footer() {
               transition={{ delay: 0.1, duration: 0.5 }}
             >
               <h4 className="mb-5 font-heading text-xs font-black uppercase tracking-[0.2em] text-white/82">
-                Contact
+                Work with me
               </h4>
               <ul className="space-y-3.5">
                 <li>
