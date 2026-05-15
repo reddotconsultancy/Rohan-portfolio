@@ -7,7 +7,7 @@ import { blogPosts } from "../data/team";
 
 export function Blog() {
   return (
-    <section className="relative z-10 py-18 sm:py-20 lg:py-24">
+    <section className="relative z-10 pb-18 pt-8 sm:pb-20 sm:pt-10 lg:pb-24 lg:pt-12">
       <div className="mx-auto max-w-[1380px] px-6 lg:px-10">
         <SmoothReveal>
           <div className="text-center">
