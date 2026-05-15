@@ -1,31 +1,39 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { clientLogos } from "../data/team";
 
-function LogoMark({ logo }) {
-  if (logo.src) {
-    return (
-      <img
-        src={logo.src}
-        alt={logo.name}
-        className={[
-          "max-h-10 w-auto max-w-[160px] object-contain opacity-90 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100 lg:max-h-12 lg:max-w-[190px]",
-          logo.tone === "light"
-            ? "brightness-0 invert contrast-125 drop-shadow-[0_0_16px_rgba(255,255,255,0.12)]"
-            : "drop-shadow-[0_0_18px_rgba(89,255,241,0.08)]",
-        ].join(" ")}
-        loading="lazy"
-      />
-    );
+function LogoItem({ logo }) {
+  const [currentSrc, setCurrentSrc] = useState(logo.src || logo.fallbackSrc || "");
+  const isFallback = currentSrc === logo.fallbackSrc;
+  const shouldLighten = logo.tone === "light" || (isFallback && logo.fallbackTone === "light");
+
+  if (!currentSrc) {
+    return null;
   }
 
   return (
-    <span
-      aria-label={logo.name}
-      className="font-heading text-xl font-black uppercase tracking-[0.14em] text-white/88 drop-shadow-[0_0_18px_rgba(255,255,255,0.1)] transition-all duration-500 group-hover:text-accent group-hover:drop-shadow-[0_0_18px_rgba(89,255,241,0.25)] lg:text-2xl"
-    >
-      {logo.wordmark}
-    </span>
+    <div className="group flex h-16 min-w-[158px] flex-shrink-0 items-center justify-center px-3 sm:min-w-[178px] lg:min-w-[198px] lg:px-5">
+      <img
+        src={currentSrc}
+        alt={logo.name}
+        onError={() => {
+          if (logo.fallbackSrc && currentSrc !== logo.fallbackSrc) {
+            setCurrentSrc(logo.fallbackSrc);
+            return;
+          }
+
+          setCurrentSrc("");
+        }}
+        className={[
+          "h-10 w-[136px] object-contain opacity-90 transition-all duration-500 group-hover:scale-[1.035] group-hover:opacity-100 sm:w-[152px] lg:h-11 lg:w-[170px]",
+          shouldLighten
+            ? "brightness-0 invert contrast-125 drop-shadow-[0_0_16px_rgba(255,255,255,0.12)]"
+            : "drop-shadow-[0_0_18px_rgba(89,255,241,0.08)]",
+        ].join(" ")}
+        decoding="async"
+        loading="eager"
+      />
+    </div>
   );
 }
 
@@ -43,16 +51,11 @@ export function LogoStrip() {
     <motion.section
       ref={ref}
       style={{ opacity }}
-      className="relative z-10 overflow-hidden border-y border-line py-12 [contain:paint]"
+      className="relative z-10 overflow-hidden border-y border-line py-6 [contain:paint] sm:py-7"
     >
       <div className="marquee-track">
         {doubled.map((logo, i) => (
-          <div
-            key={`${logo.name}-${i}`}
-            className="group flex h-24 min-w-[220px] flex-shrink-0 items-center justify-center px-8 lg:min-w-[260px] lg:px-12"
-          >
-            <LogoMark logo={logo} />
-          </div>
+          <LogoItem key={`${logo.name}-${i}`} logo={logo} />
         ))}
       </div>
     </motion.section>

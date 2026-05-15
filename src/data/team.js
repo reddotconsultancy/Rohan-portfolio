@@ -92,19 +92,19 @@ export const projects = [
 ];
 
 export const clientLogos = [
-  { name: "AWS", wordmark: "AWS" },
-  { name: "PepsiCo", wordmark: "PEPSICO" },
-  { name: "Red Bull", src: "/images/logos/Red_Bull_idCMb-1Vvp_1.png" },
-  { name: "Emaar", src: "/images/logos/Emaar_idXvHX22tw_0.png", tone: "light" },
-  { name: "Centene", src: "/images/logos/Centene_idRbNkT_6y_1.png", tone: "light" },
-  { name: "The North Face", src: "/images/logos/The_North_Face_Logo_1.png", tone: "light" },
-  { name: "Lenovo", src: "/images/logos/Lenovo_Partner_idltQKJPYp_0.png" },
-  { name: "Unilever", src: "/images/logos/Unilever_idKa-ZG1zZ_1.png", tone: "light" },
-  { name: "Aditya Birla", wordmark: "ADITYA BIRLA" },
-  { name: "Belkin", src: "/images/logos/Belkin_idRHCcazzT_0.png", tone: "light" },
-  { name: "APS Payroll", src: "/images/logos/APS_Payroll_idQ0maL20D_0.png", tone: "light" },
-  { name: "PayPal", wordmark: "PayPal" },
-  { name: "Huawei", wordmark: "HUAWEI" },
+  { name: "AWS", src: "/images/logos/aws.png" },
+  { name: "PepsiCo", src: "/images/logos/pepsico.png" },
+  { name: "Red Bull", src: "/images/logos/red-bull.png", fallbackSrc: "/images/logos/Red_Bull_idCMb-1Vvp_1.png" },
+  { name: "Emaar", src: "/images/logos/emaar.png", fallbackSrc: "/images/logos/Emaar_idXvHX22tw_0.png", fallbackTone: "light" },
+  { name: "Centene", src: "/images/logos/centene.png", fallbackSrc: "/images/logos/Centene_idRbNkT_6y_1.png", fallbackTone: "light" },
+  { name: "The North Face", src: "/images/logos/the-north-face.png", fallbackSrc: "/images/logos/The_North_Face_Logo_1.png", fallbackTone: "light" },
+  { name: "Lenovo", src: "/images/logos/lenovo.png", fallbackSrc: "/images/logos/Lenovo_Partner_idltQKJPYp_0.png" },
+  { name: "Unilever", src: "/images/logos/unilever.png", fallbackSrc: "/images/logos/Unilever_idKa-ZG1zZ_1.png", fallbackTone: "light" },
+  { name: "Aditya Birla", src: "/images/logos/aditya-birla.png" },
+  { name: "Belkin", src: "/images/logos/belkin.png", fallbackSrc: "/images/logos/Belkin_idRHCcazzT_0.png", fallbackTone: "light" },
+  { name: "APS Payroll", src: "/images/logos/aps-payroll.png", fallbackSrc: "/images/logos/APS_Payroll_idQ0maL20D_0.png", fallbackTone: "light" },
+  { name: "PayPal", src: "/images/logos/paypal.png" },
+  { name: "Huawei", src: "/images/logos/huawei.png" },
 ];
 
 export const expertBio = {
