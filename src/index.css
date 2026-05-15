@@ -182,6 +182,18 @@ main {
   will-change: transform;
 }
 
+.logo-marquee-row {
+  animation-duration: 34s;
+}
+
+.logo-marquee-row:nth-child(2) {
+  animation-duration: 39s;
+}
+
+.marquee-track-reverse {
+  animation-direction: reverse;
+}
+
 .marquee-track:hover {
   animation-play-state: paused;
 }

@@ -9,15 +9,15 @@ function LogoItem({ logo }) {
   const visualScale = logo.scale || 1;
   const laneClass =
     logo.lane === "wide"
-      ? "w-[214px] sm:w-[232px] lg:w-[250px]"
-      : "w-[188px] sm:w-[206px] lg:w-[224px]";
+      ? "w-[220px] sm:w-[260px] lg:w-[292px]"
+      : "w-[196px] sm:w-[232px] lg:w-[260px]";
 
   if (!currentSrc) {
     return null;
   }
 
   return (
-    <div className={`group flex h-16 flex-shrink-0 items-center justify-center px-5 ${laneClass}`}>
+    <div className={`group flex h-16 flex-shrink-0 items-center justify-center px-6 ${laneClass}`}>
       <img
         src={currentSrc}
         alt={logo.name}
@@ -31,7 +31,7 @@ function LogoItem({ logo }) {
           setCurrentSrc("");
         }}
         className={[
-          "h-10 w-[148px] object-contain opacity-90 transition-opacity duration-500 group-hover:opacity-100 sm:w-[160px] lg:h-11 lg:w-[172px]",
+          "h-10 w-[148px] object-contain opacity-90 transition-opacity duration-500 group-hover:opacity-100 sm:w-[166px] lg:h-11 lg:w-[184px]",
           shouldLighten
             ? "brightness-0 invert contrast-125 drop-shadow-[0_0_16px_rgba(255,255,255,0.12)]"
             : "drop-shadow-[0_0_18px_rgba(89,255,241,0.08)]",
@@ -44,7 +44,9 @@ function LogoItem({ logo }) {
 }
 
 export function LogoStrip() {
-  const doubled = [...clientLogos, ...clientLogos];
+  const topRow = [...clientLogos, ...clientLogos];
+  const bottomLogos = [...clientLogos].reverse();
+  const bottomRow = [...bottomLogos, ...bottomLogos];
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -57,12 +59,19 @@ export function LogoStrip() {
     <motion.section
       ref={ref}
       style={{ opacity }}
-      className="relative z-10 overflow-hidden border-y border-line py-6 [contain:paint] sm:py-7"
+      className="relative z-10 overflow-hidden border-y border-line py-7 [contain:paint] sm:py-8"
     >
-      <div className="marquee-track">
-        {doubled.map((logo, i) => (
-          <LogoItem key={`${logo.name}-${i}`} logo={logo} />
-        ))}
+      <div className="space-y-5 sm:space-y-6">
+        <div className="marquee-track logo-marquee-row">
+          {topRow.map((logo, i) => (
+            <LogoItem key={`top-${logo.name}-${i}`} logo={logo} />
+          ))}
+        </div>
+        <div className="marquee-track logo-marquee-row marquee-track-reverse">
+          {bottomRow.map((logo, i) => (
+            <LogoItem key={`bottom-${logo.name}-${i}`} logo={logo} />
+          ))}
+        </div>
       </div>
     </motion.section>
   );

@@ -15,7 +15,7 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About Me", href: "/about-me" },
   { label: "Services", href: "/services" },
-  { label: "Book a 30-min Strategy Call", href: "/contact-us" },
+  { label: "Work with me", href: "/contact-us" },
 ];
 
 const footerLinkClass =
@@ -291,9 +291,9 @@ export function Footer() {
                     {siteInfo.email}
                   </a>
                 </li>
-                <li className="flex items-center gap-2.5 text-sm font-semibold text-white/48">
+                <li className="flex items-center gap-2.5 text-sm font-semibold text-white/74">
                   <span className="flex h-7 w-7 items-center justify-center rounded-full border border-accent/10 bg-accent/[0.08]">
-                    <MapPin size={11} className="text-accent/70" />
+                    <MapPin size={11} className="text-accent" />
                   </span>
                   {siteInfo.location}
                 </li>
@@ -361,7 +361,7 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-1">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent/60" />
-            <span className="text-[10px] text-white/25">Bangalore & Goa</span>
+            <span className="text-[10px] font-semibold text-accent/70">Bangalore & Goa</span>
           </div>
         </div>
       </div>

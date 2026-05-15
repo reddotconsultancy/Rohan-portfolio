@@ -92,19 +92,21 @@ export const projects = [
 ];
 
 export const clientLogos = [
-  { name: "AWS", src: "/images/logos/aws.png" },
-  { name: "PepsiCo", src: "/images/logos/pepsico.png" },
-  { name: "Red Bull", src: "/images/logos/red-bull.png", fallbackSrc: "/images/logos/Red_Bull_idCMb-1Vvp_1.png", scale: 0.96, lane: "wide" },
+  { name: "AWS", src: "/images/logos/aws.svg", tone: "light", scale: 1.08 },
+  { name: "PepsiCo", src: "/images/logos/pepsico.svg", scale: 1.04, lane: "wide" },
+  { name: "Red Bull", src: "/images/logos/red-bull.svg", fallbackSrc: "/images/logos/Red_Bull_idCMb-1Vvp_1.png", scale: 0.96, lane: "wide" },
   { name: "Emaar", src: "/images/logos/emaar.png", fallbackSrc: "/images/logos/Emaar_idXvHX22tw_0.png", fallbackTone: "light", scale: 1.02, lane: "wide" },
   { name: "Centene", src: "/images/logos/centene.png", fallbackSrc: "/images/logos/Centene_idRbNkT_6y_1.png", fallbackTone: "light", scale: 1, lane: "wide" },
-  { name: "The North Face", src: "/images/logos/the-north-face.png", fallbackSrc: "/images/logos/The_North_Face_Logo_1.png", fallbackTone: "light", scale: 1.08 },
-  { name: "Lenovo", src: "/images/logos/lenovo.png", fallbackSrc: "/images/logos/Lenovo_Partner_idltQKJPYp_0.png", scale: 1.02 },
-  { name: "Unilever", src: "/images/logos/unilever.png", fallbackSrc: "/images/logos/Unilever_idKa-ZG1zZ_1.png", fallbackTone: "light", scale: 1.62 },
-  { name: "Aditya Birla", src: "/images/logos/aditya-birla.png" },
-  { name: "Belkin", src: "/images/logos/belkin.png", fallbackSrc: "/images/logos/Belkin_idRHCcazzT_0.png", fallbackTone: "light", scale: 1.04 },
-  { name: "APS Payroll", src: "/images/logos/aps-payroll.png", fallbackSrc: "/images/logos/APS_Payroll_idQ0maL20D_0.png", fallbackTone: "light", scale: 1.04 },
-  { name: "PayPal", src: "/images/logos/paypal.png" },
-  { name: "Huawei", src: "/images/logos/huawei.png" },
+  { name: "The North Face", src: "/images/logos/the-north-face.svg", fallbackSrc: "/images/logos/The_North_Face_Logo_1.png", fallbackTone: "light", scale: 1.08 },
+  { name: "Lenovo", src: "/images/logos/lenovo.svg", fallbackSrc: "/images/logos/Lenovo_Partner_idltQKJPYp_0.png", scale: 1.02 },
+  { name: "Unilever", src: "/images/logos/unilever.svg", fallbackSrc: "/images/logos/Unilever_idKa-ZG1zZ_1.png", fallbackTone: "light", scale: 1.26 },
+  { name: "Aditya Birla", src: "/images/logos/adbsvg.png", scale: 1.08 },
+  { name: "Belkin", src: "/images/logos/Belkin_idRHCcazzT_1.svg", fallbackSrc: "/images/logos/Belkin_idRHCcazzT_0.png", tone: "light", fallbackTone: "light", scale: 1.04 },
+  { name: "APS Payroll", src: "/images/logos/APS_Payroll_idQ0maL20D_1.svg", fallbackSrc: "/images/logos/APS_Payroll_idQ0maL20D_0.png", tone: "light", fallbackTone: "light", scale: 1.04 },
+  { name: "PayPal", src: "/images/logos/paypal.svg", scale: 1.06 },
+  { name: "Huawei", src: "/images/logos/huawei.svg", scale: 1.08 },
+  { name: "Visa", src: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Visa_Inc._logo_%282021%E2%80%93present%29.svg", scale: 1.08 },
+  { name: "Coca-Cola", src: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg", scale: 1.1, lane: "wide" },
 ];
 
 export const expertBio = {
