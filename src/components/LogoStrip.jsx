@@ -44,8 +44,10 @@ function LogoItem({ logo }) {
 }
 
 export function LogoStrip() {
-  const topRow = [...clientLogos, ...clientLogos];
-  const bottomLogos = [...clientLogos].reverse();
+  const splitIndex = Math.ceil(clientLogos.length / 2);
+  const topLogos = clientLogos.slice(0, splitIndex);
+  const bottomLogos = clientLogos.slice(splitIndex);
+  const topRow = [...topLogos, ...topLogos];
   const bottomRow = [...bottomLogos, ...bottomLogos];
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({

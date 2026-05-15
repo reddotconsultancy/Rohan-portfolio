@@ -97,7 +97,7 @@ export const clientLogos = [
   { name: "Red Bull", src: "/images/logos/red-bull.svg", fallbackSrc: "/images/logos/Red_Bull_idCMb-1Vvp_1.png", scale: 0.96, lane: "wide" },
   { name: "Emaar", src: "/images/logos/emaar.png", fallbackSrc: "/images/logos/Emaar_idXvHX22tw_0.png", fallbackTone: "light", scale: 1.02, lane: "wide" },
   { name: "Centene", src: "/images/logos/centene.png", fallbackSrc: "/images/logos/Centene_idRbNkT_6y_1.png", fallbackTone: "light", scale: 1, lane: "wide" },
-  { name: "The North Face", src: "/images/logos/the-north-face.svg", fallbackSrc: "/images/logos/The_North_Face_Logo_1.png", fallbackTone: "light", scale: 1.08 },
+  { name: "The North Face", src: "/images/logos/the-north-face-large.png", tone: "light", scale: 1.38, lane: "wide" },
   { name: "Lenovo", src: "/images/logos/lenovo.svg", fallbackSrc: "/images/logos/Lenovo_Partner_idltQKJPYp_0.png", scale: 1.02 },
   { name: "Unilever", src: "/images/logos/unilever.svg", fallbackSrc: "/images/logos/Unilever_idKa-ZG1zZ_1.png", fallbackTone: "light", scale: 1.26 },
   { name: "Aditya Birla", src: "/images/logos/adbsvg.png", scale: 1.08 },
