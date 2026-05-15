@@ -92,17 +92,19 @@ export const projects = [
 ];
 
 export const clientLogos = [
-  { name: "ADB", src: "/images/logos/adbsvg.png" },
-  { name: "APS Payroll", src: "/images/logos/APS_Payroll_idQ0maL20D_0.png" },
-  { name: "Belkin", src: "/images/logos/Belkin_idRHCcazzT_0.png" },
-  { name: "Centene", src: "/images/logos/Centene_idRbNkT_6y_1.png" },
-  { name: "Emaar", src: "/images/logos/Emaar_idXvHX22tw_0.png" },
-  { name: "Jefferies Financial Group", src: "/images/logos/Jefferies_Financial_Group_idGeHjIkMe_1.png" },
-  { name: "Lenovo Partner", src: "/images/logos/Lenovo_Partner_idltQKJPYp_0.png" },
-  { name: "Procter & Gamble", src: "/images/logos/Procter___Gamble_Investor_Relations_idSnzkUgZS_0.png" },
+  { name: "AWS", wordmark: "AWS" },
+  { name: "PepsiCo", wordmark: "PEPSICO" },
   { name: "Red Bull", src: "/images/logos/Red_Bull_idCMb-1Vvp_1.png" },
-  { name: "The North Face", src: "/images/logos/The_North_Face_Logo_1.png" },
-  { name: "Unilever", src: "/images/logos/Unilever_idKa-ZG1zZ_1.png" },
+  { name: "Emaar", src: "/images/logos/Emaar_idXvHX22tw_0.png", tone: "light" },
+  { name: "Centene", src: "/images/logos/Centene_idRbNkT_6y_1.png", tone: "light" },
+  { name: "The North Face", src: "/images/logos/The_North_Face_Logo_1.png", tone: "light" },
+  { name: "Lenovo", src: "/images/logos/Lenovo_Partner_idltQKJPYp_0.png" },
+  { name: "Unilever", src: "/images/logos/Unilever_idKa-ZG1zZ_1.png", tone: "light" },
+  { name: "Aditya Birla", wordmark: "ADITYA BIRLA" },
+  { name: "Belkin", src: "/images/logos/Belkin_idRHCcazzT_0.png", tone: "light" },
+  { name: "APS Payroll", src: "/images/logos/APS_Payroll_idQ0maL20D_0.png", tone: "light" },
+  { name: "PayPal", wordmark: "PayPal" },
+  { name: "Huawei", wordmark: "HUAWEI" },
 ];
 
 export const expertBio = {

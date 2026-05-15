@@ -15,7 +15,7 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About Me", href: "/about-me" },
   { label: "Services", href: "/services" },
-  { label: "Work with me", href: "/contact-us" },
+  { label: "Book a 30-min Strategy Call", href: "/contact-us" },
 ];
 
 const footerLinkClass =
