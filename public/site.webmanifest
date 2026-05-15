@@ -1,0 +1,24 @@
+{
+  "name": "Rohan Dsouza",
+  "short_name": "Rohan Dsouza",
+  "description": "AI, GTM, product strategy, and growth systems for serious businesses.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050606",
+  "theme_color": "#050606",
+  "icons": [
+    {
+      "src": "/images/Rohan-Dsouza-Monogram-300x148.png",
+      "sizes": "300x148",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/Rohan-Dsouza-Monogram-1024x503.png",
+      "sizes": "1024x503",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

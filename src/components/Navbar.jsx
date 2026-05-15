@@ -150,13 +150,15 @@ export function Navbar() {
 
         <Link
           to="/contact-us"
-          className="group relative z-10 hidden justify-self-end overflow-hidden rounded-full border border-accent bg-black/20 px-7 py-3 text-[0.78rem] font-black uppercase tracking-[0.13em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:text-[#031111] hover:shadow-[0_0_34px_rgba(89,255,241,0.3)] md:inline-flex"
+          className="navbar-cta group relative z-10 hidden justify-self-end overflow-hidden rounded-full border border-accent bg-black/20 px-7 py-3 text-[0.78rem] font-black uppercase tracking-[0.13em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:shadow-[0_0_34px_rgba(89,255,241,0.3)] md:inline-flex"
         >
-          <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-          <span>Work With Me</span>
+          <span className="absolute inset-0 z-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+          <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+            Work With Me
+          </span>
           <ArrowUpRight
             size={14}
-            className="ml-2 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            className="relative z-10 ml-2 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-black"
           />
         </Link>
 

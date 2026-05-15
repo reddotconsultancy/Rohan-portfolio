@@ -67,6 +67,11 @@ button {
   touch-action: manipulation;
 }
 
+.navbar-cta:hover,
+.navbar-cta:hover * {
+  color: #031111 !important;
+}
+
 img {
   display: block;
   max-width: 100%;

@@ -8,6 +8,7 @@ import { ContactPage } from "./pages/ContactPage";
 import { BlogDetailPage } from "./pages/BlogDetailPage";
 import { CursorFollower } from "./components/ui/CursorFollower";
 import { Preloader } from "./components/ui/Preloader";
+import { SeoManager } from "./components/SeoManager";
 
 const pageVariants = {
   initial: { opacity: 0, y: 12 },
@@ -50,6 +51,7 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
+      <SeoManager />
       <Preloader />
       <CursorFollower />
       <AnimatedRoutes />
