@@ -27,7 +27,7 @@ export function CTA() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative z-10 py-28 lg:py-36"
+      className="relative z-10 py-16 sm:py-24 lg:py-36"
     >
       <div className="mx-auto max-w-[1380px] px-6 lg:px-10">
         <motion.div
@@ -54,11 +54,11 @@ export function CTA() {
             }}
           />
 
-          <div className="relative z-10 px-8 py-20 text-center lg:px-16 lg:py-28">
+          <div className="relative z-10 px-5 py-14 text-center sm:px-8 sm:py-20 lg:px-16 lg:py-28">
             <TextReveal
               text="Let's Create Something Great Together"
               as="h2"
-              className="mx-auto max-w-3xl font-heading text-3xl font-black text-text sm:text-4xl lg:text-5xl xl:text-6xl"
+              className="mx-auto max-w-3xl font-heading text-[2rem] font-black leading-[1.08] text-text sm:text-4xl lg:text-5xl xl:text-6xl"
             />
 
             <motion.p
@@ -66,7 +66,7 @@ export function CTA() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="mt-4 font-heading text-sm font-semibold uppercase tracking-[0.3em] text-accent/70"
+              className="mt-4 font-heading text-xs font-semibold uppercase tracking-[0.18em] text-accent/70 sm:text-sm sm:tracking-[0.3em]"
             >
               {siteInfo.tagline
                 .split(".")
@@ -87,7 +87,7 @@ export function CTA() {
                   href={siteInfo.calendly}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 font-heading text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.04]"
+                  className="group relative inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 font-heading text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.04] sm:px-8 sm:text-sm"
                   style={{
                     animation: "pulse-glow 3s ease-in-out infinite",
                     color: "#000000",

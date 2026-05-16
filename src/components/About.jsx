@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useScroll,
@@ -20,7 +20,7 @@ const CARD_ICONS = ["\u2726", "\u2691", "\u2662", "\u2609", "\u2698"];
 
 const OFFSETS = [40, -30, 50, -25, 45];
 
-function ContentCard({ card, image, icon, index, sectionProgress }) {
+function ContentCard({ card, image, icon, index, sectionProgress, isMobile }) {
   const [flipped, setFlipped] = useState(false);
   const yOffset = OFFSETS[index];
   const stagger = index * 0.12;
@@ -47,8 +47,8 @@ function ContentCard({ card, image, icon, index, sectionProgress }) {
 
   return (
     <motion.div
-      className="group relative min-w-[72vw] snap-center sm:min-w-[260px] lg:min-w-0 lg:flex-1"
-      style={{ y, scale, rotate }}
+      className="group relative min-w-[84vw] max-w-[350px] snap-center sm:min-w-[300px] sm:max-w-none lg:min-w-0 lg:flex-1"
+      style={isMobile ? undefined : { y, scale, rotate }}
       role="button"
       tabIndex={0}
       aria-label={`${card.title} details`}
@@ -64,7 +64,7 @@ function ContentCard({ card, image, icon, index, sectionProgress }) {
         }
       }}
     >
-      <div className="relative h-[420px] outline-none [perspective:1200px] sm:h-[400px] lg:h-[420px]">
+      <div className="relative h-[390px] outline-none [perspective:1200px] sm:h-[400px] lg:h-[420px]">
         <motion.div
           className="relative h-full w-full"
           animate={{ rotateY: flipped ? 180 : 0 }}
@@ -132,17 +132,26 @@ function ContentCard({ card, image, icon, index, sectionProgress }) {
 
 export function About() {
   const sectionRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    const sync = () => setIsMobile(media.matches);
+    sync();
+    media.addEventListener?.("change", sync);
+    return () => media.removeEventListener?.("change", sync);
+  }, []);
+
   return (
     <section
       id="about"
       ref={sectionRef}
-      className="relative z-10 overflow-hidden py-28 lg:py-40"
+      className="relative z-10 overflow-hidden py-20 sm:py-28 lg:py-40"
     >
       <div className="pointer-events-none absolute inset-0 -z-20">
         <div className="absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.025] blur-[140px]" />
@@ -174,6 +183,7 @@ export function About() {
               icon={CARD_ICONS[i]}
               index={i}
               sectionProgress={scrollYProgress}
+              isMobile={isMobile}
             />
           ))}
         </div>

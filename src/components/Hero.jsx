@@ -39,7 +39,7 @@ export function Hero() {
     <section
       ref={ref}
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black"
+      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-black py-28 sm:py-32"
     >
       <motion.div
         className="absolute inset-0 z-0"
@@ -98,7 +98,7 @@ export function Hero() {
 
         <motion.h1
           variants={item}
-          className="mx-auto mt-20 max-w-5xl font-heading text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:mt-24 lg:text-[86px]"
+          className="mx-auto mt-12 max-w-5xl font-heading text-[2.55rem] font-black leading-[1.05] tracking-tight text-white sm:mt-16 sm:text-5xl md:text-6xl lg:mt-24 lg:text-[86px]"
         >
           {heroContent.title}
         </motion.h1>
@@ -115,7 +115,7 @@ export function Hero() {
             href={siteInfo.calendly}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent px-8 py-4 text-sm font-bold uppercase tracking-wider backdrop-blur-sm transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_50px_rgba(89,255,241,0.35)]"
+            className="group inline-flex max-w-full items-center justify-center gap-2 rounded-full border border-accent/20 bg-accent px-7 py-4 text-sm font-bold uppercase tracking-wider backdrop-blur-sm transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_50px_rgba(89,255,241,0.35)] sm:px-8"
             style={{ color: "#000000" }}
           >
             Let&apos;s Talk

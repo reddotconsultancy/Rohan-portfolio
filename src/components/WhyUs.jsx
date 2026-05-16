@@ -28,42 +28,34 @@ export function WhyUs() {
     offset: ["start end", "end start"],
   });
 
-  const imgY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const imgY = useTransform(scrollYProgress, [0, 1], [26, -26]);
   const imgScale = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
     [0.92, 1, 1.03]
   );
-  const clipPath = useTransform(
-    scrollYProgress,
-    [0, 0.4],
-    [
-      "inset(12% 12% 12% 12% round 16px)",
-      "inset(0% 0% 0% 0% round 16px)",
-    ]
-  );
 
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 py-28 lg:py-36"
+      className="relative z-10 overflow-hidden py-20 sm:py-24 lg:py-36"
     >
       <FloatingOrbs count={3} className="-z-10 opacity-30" />
       <GlowLine className="absolute top-0" />
 
       <div className="mx-auto max-w-[1380px] px-6 lg:px-10">
-        <div className="grid gap-16 lg:grid-cols-[0.92fr_1fr] lg:items-center">
+        <div className="grid gap-12 lg:grid-cols-[0.92fr_1fr] lg:items-center lg:gap-16">
           <SmoothReveal direction="left">
             <div>
               <SectionLabel text="Why Us?" />
-              <h2 className="mt-4 font-heading text-3xl font-black text-text sm:text-4xl lg:text-5xl">
+              <h2 className="mt-4 font-heading text-[2rem] font-black leading-[1.08] text-text sm:text-4xl lg:text-5xl">
                 Why Our Clients{" "}
                 <span className="bg-gradient-to-r from-accent via-[#7dfff2] to-accent-strong bg-clip-text text-transparent">
                   Choose Me
                 </span>
               </h2>
 
-              <div className="mt-10 flex flex-col gap-6">
+              <div className="mt-8 flex flex-col gap-5 sm:mt-10 sm:gap-6">
                 {whyItems.map((item, i) => {
                   const Icon = icons[i];
                   return (
@@ -86,14 +78,14 @@ export function WhyUs() {
                     >
                       <TiltCard
                         tiltStrength={6}
-                        className="group relative flex items-center gap-5 overflow-hidden rounded-[24px] border border-white/10 bg-[#11141a]/75 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.055)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-accent/30 hover:bg-[#15191f]/85 hover:shadow-[0_20px_70px_rgba(0,0,0,0.28),0_0_44px_rgba(89,255,241,0.055)] sm:gap-6 sm:p-6"
+                        className="group relative flex items-center gap-4 overflow-hidden rounded-[22px] border border-white/10 bg-[#11141a]/75 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.055)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-accent/30 hover:bg-[#15191f]/85 hover:shadow-[0_20px_70px_rgba(0,0,0,0.28),0_0_44px_rgba(89,255,241,0.055)] sm:gap-6 sm:rounded-[24px] sm:p-6"
                       >
-                        <div className="relative flex h-[72px] w-[72px] flex-shrink-0 items-center justify-center rounded-[20px] border border-accent/28 bg-gradient-to-br from-accent/12 to-accent/[0.035] text-accent shadow-[0_0_24px_rgba(89,255,241,0.1),inset_0_1px_0_rgba(89,255,241,0.16)] transition-all duration-300 group-hover:bg-accent group-hover:text-[#031111]">
+                        <div className="relative flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-[18px] border border-accent/28 bg-gradient-to-br from-accent/12 to-accent/[0.035] text-accent shadow-[0_0_24px_rgba(89,255,241,0.1),inset_0_1px_0_rgba(89,255,241,0.16)] transition-all duration-300 group-hover:bg-accent group-hover:text-[#031111] sm:h-[72px] sm:w-[72px] sm:rounded-[20px]">
                           <Icon size={26} strokeWidth={1.8} />
                           <div className="absolute inset-0 rounded-2xl bg-accent/[0.04] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                         </div>
                         <div className="min-w-0">
-                          <h3 className="font-heading text-[1.05rem] font-extrabold leading-snug text-text sm:text-[1.08rem]">
+                          <h3 className="font-heading text-base font-extrabold leading-snug text-text sm:text-[1.08rem]">
                             {item}
                           </h3>
                         </div>
@@ -121,7 +113,7 @@ export function WhyUs() {
 
           <div ref={imgRef}>
             <SmoothReveal direction="right">
-              <div className="relative aspect-square">
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[560px] sm:aspect-square lg:max-w-[620px]">
                 <motion.div
                   className="absolute -inset-4 rounded-3xl border border-accent/15 opacity-0"
                   whileInView={{ opacity: 1 }}
@@ -140,7 +132,7 @@ export function WhyUs() {
                   size={160}
                   duration={16}
                   dotCount={4}
-                  className="-right-10 -top-10 opacity-50"
+                  className="-right-4 -top-5 opacity-45 sm:-right-10 sm:-top-10 sm:opacity-50"
                 />
 
                 <motion.div
@@ -183,16 +175,18 @@ export function WhyUs() {
                   transition={{ delay: 0.9, duration: 0.8 }}
                 />
 
-                <div className="group relative overflow-hidden rounded-2xl">
+                <div className="group relative h-full overflow-hidden rounded-2xl bg-[#0b0f14]">
                   <motion.div
-                    style={{ y: imgY, scale: imgScale, clipPath }}
-                    className="h-full w-full"
+                    style={{ y: imgY, scale: imgScale }}
+                    className="absolute -inset-8"
                   >
                     <img
                       src="/images/RDNEWGEN-2.jpeg"
                       alt="Rohan Dsouza"
                       className="h-full w-full rounded-2xl object-cover"
-                      loading="lazy"
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority="high"
                     />
                   </motion.div>
 

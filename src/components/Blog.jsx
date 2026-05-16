@@ -7,12 +7,12 @@ import { blogPosts } from "../data/team";
 
 export function Blog() {
   return (
-    <section className="relative z-10 py-20 sm:py-24 lg:py-28">
+    <section className="relative z-10 py-16 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-[1440px] px-6 sm:px-9 lg:px-12">
         <SmoothReveal>
           <div className="text-center">
             <SectionLabel text="Our Blog" />
-            <h2 className="mx-auto mt-4 max-w-3xl font-heading text-3xl font-black leading-[1.08] text-text sm:text-4xl lg:text-5xl">
+            <h2 className="mx-auto mt-4 max-w-3xl font-heading text-[2rem] font-black leading-[1.08] text-text sm:text-4xl lg:text-5xl">
               Practical Notes on AI, Growth and Systems
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
@@ -22,7 +22,7 @@ export function Blog() {
           </div>
         </SmoothReveal>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-6 lg:gap-6 xl:gap-7">
+        <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-6 lg:gap-6 xl:gap-7">
           {blogPosts.map((post, i) => {
             const fillLastDesktopRow = blogPosts.length % 3 === 2 && i >= blogPosts.length - 2;
             const fillLastTabletRow = blogPosts.length % 2 === 1 && i === blogPosts.length - 1;
@@ -46,7 +46,7 @@ export function Blog() {
               >
                 <Link
                   to={post.link}
-                  className="group relative flex h-full min-h-[250px] overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.026] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/25 hover:bg-white/[0.045] hover:shadow-[0_24px_70px_rgba(0,0,0,0.28)] sm:min-h-[270px] sm:p-6 lg:min-h-[286px]"
+                  className="group relative flex h-full min-h-[230px] overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.026] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/25 hover:bg-white/[0.045] hover:shadow-[0_24px_70px_rgba(0,0,0,0.28)] sm:min-h-[270px] sm:p-6 lg:min-h-[286px]"
                 >
                   <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-accent/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-accent/[0.035] blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

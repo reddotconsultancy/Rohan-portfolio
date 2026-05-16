@@ -79,7 +79,7 @@ export function Navbar() {
         variants={headerVariants}
         initial="hidden"
         animate="visible"
-        className={`fixed left-1/2 top-5 z-50 grid w-[min(88vw,1320px)] -translate-x-1/2 grid-cols-[1fr_auto_1fr] items-center gap-5 overflow-hidden rounded-[34px] border px-7 py-3.5 shadow-[0_28px_90px_rgba(0,0,0,0.48),inset_0_1px_0_rgba(255,255,255,0.085)] backdrop-blur-2xl transition-[top,background,border-color,box-shadow,padding,transform] duration-500 ease-out will-change-transform max-md:w-[calc(100vw-28px)] max-md:grid-cols-[1fr_auto] max-md:px-4 ${
+        className={`fixed left-1/2 top-5 z-50 grid w-[min(88vw,1320px)] -translate-x-1/2 grid-cols-[1fr_auto_1fr] items-center gap-5 overflow-hidden rounded-[34px] border px-7 py-3.5 shadow-[0_28px_90px_rgba(0,0,0,0.48),inset_0_1px_0_rgba(255,255,255,0.085)] backdrop-blur-2xl transition-[top,background,border-color,box-shadow,padding,transform] duration-500 ease-out will-change-transform max-md:top-[calc(env(safe-area-inset-top)+12px)] max-md:w-[calc(100vw-24px)] max-md:grid-cols-[1fr_auto] max-md:gap-3 max-md:rounded-[28px] max-md:px-4 max-md:py-3 ${
           scrolled
             ? "top-3 border-accent/24 bg-[#05080b]/94 py-2.5 shadow-[0_20px_70px_rgba(0,0,0,0.58),0_0_0_1px_rgba(89,255,241,0.08)]"
             : "border-accent/12 bg-[#05080b]/82"
@@ -110,7 +110,7 @@ export function Navbar() {
           <img
             src="/images/Rohan-Dsouza-Monogram.png"
             alt="Rohan Dsouza"
-            className="h-11 w-auto drop-shadow-[0_10px_28px_rgba(89,255,241,0.3)] transition-transform duration-500 ease-out group-hover:scale-[1.045] md:h-12"
+            className="h-10 w-auto drop-shadow-[0_10px_28px_rgba(89,255,241,0.3)] transition-transform duration-500 ease-out group-hover:scale-[1.045] sm:h-11 md:h-12"
           />
         </Link>
 
@@ -178,7 +178,7 @@ export function Navbar() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-x-4 top-[86px] z-50 overflow-hidden rounded-[24px] border border-accent/14 bg-[#06090d]/96 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.62)] backdrop-blur-2xl md:hidden"
+            className="fixed inset-x-3 top-[calc(env(safe-area-inset-top)+78px)] z-50 overflow-hidden rounded-[24px] border border-accent/14 bg-[#06090d]/96 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.62)] backdrop-blur-2xl md:hidden"
           >
             {navItems.map((item) => (
               <Link

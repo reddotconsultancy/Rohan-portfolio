@@ -106,7 +106,7 @@ function FloatingWidget({ widget, index }) {
       >
         <TiltCard
           tiltStrength={12}
-          className="group relative overflow-hidden rounded-2xl border border-line/40 bg-white/[0.03] p-6 backdrop-blur-xl transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_50px_rgba(89,255,241,0.1)]"
+          className="group relative overflow-hidden rounded-2xl border border-line/40 bg-white/[0.03] p-5 backdrop-blur-xl transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_50px_rgba(89,255,241,0.1)] sm:p-6"
         >
           <motion.div
             className={`absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br ${widget.color} blur-[40px] opacity-40 transition-opacity duration-500 group-hover:opacity-70`}
@@ -128,7 +128,7 @@ function FloatingWidget({ widget, index }) {
             <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted/60">
               {widget.label}
             </p>
-            <p className="mt-1 font-heading text-lg font-bold text-white transition-colors duration-400 group-hover:text-accent">
+            <p className="mt-1 break-words font-heading text-base font-bold text-white transition-colors duration-400 group-hover:text-accent sm:text-lg">
               {widget.value}
             </p>
 
@@ -166,7 +166,7 @@ function ContactForm() {
   return (
     <TiltCard
       tiltStrength={4}
-      className="relative overflow-hidden rounded-2xl border border-line/40 bg-white/[0.03] p-8 backdrop-blur-xl lg:p-10"
+      className="relative overflow-hidden rounded-2xl border border-line/40 bg-white/[0.03] p-5 backdrop-blur-xl sm:p-8 lg:p-10"
     >
       <motion.div
         className="pointer-events-none absolute -right-20 -top-20 h-[300px] w-[300px] rounded-full bg-accent/[0.04] blur-[80px]"
@@ -320,7 +320,7 @@ export function ContactPage() {
       <main>
         <section
           ref={heroRef}
-          className="relative z-10 flex min-h-[50vh] items-center overflow-hidden pt-32 pb-16 lg:pt-40 lg:pb-20"
+          className="relative z-10 flex min-h-[50svh] items-center overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20"
         >
           <motion.div
             className="absolute inset-0 -z-10"
@@ -360,7 +360,7 @@ export function ContactPage() {
             </SmoothReveal>
 
             <motion.h1
-              className="mt-6 font-heading text-4xl font-black text-white sm:text-5xl lg:text-6xl"
+              className="mt-6 font-heading text-[2.35rem] font-black leading-[1.08] text-white sm:text-5xl lg:text-6xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.7 }}
@@ -389,7 +389,7 @@ export function ContactPage() {
           <FloatingOrbs count={3} className="-z-10 opacity-25" />
 
           <div className="mx-auto max-w-[1380px] px-6 lg:px-10">
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
               {CONTACT_WIDGETS.map((w, i) => (
                 <FloatingWidget key={w.label} widget={w} index={i} />
               ))}
@@ -399,7 +399,7 @@ export function ContactPage() {
 
         <section className="relative z-10 py-12 lg:py-20">
           <div className="mx-auto max-w-[1380px] px-6 lg:px-10">
-            <div className="grid gap-12 lg:grid-cols-[1fr_480px] lg:gap-16">
+            <div className="grid gap-10 lg:grid-cols-[1fr_480px] lg:gap-16">
               <SmoothReveal direction="left">
                 <ContactForm />
               </SmoothReveal>

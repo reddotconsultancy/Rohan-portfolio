@@ -41,12 +41,12 @@ export function Testimonials() {
   const t = testimonials[active];
 
   return (
-    <section className="relative z-10 py-28 lg:py-36">
+    <section className="relative z-10 py-20 sm:py-24 lg:py-36">
       <div className="mx-auto max-w-[900px] px-6 lg:px-10">
         <SmoothReveal>
           <div className="text-center">
             <SectionLabel text="Testimonials" />
-            <h2 className="mt-4 font-heading text-3xl font-black text-text sm:text-4xl lg:text-5xl">
+            <h2 className="mt-4 font-heading text-[2rem] font-black leading-[1.08] text-text sm:text-4xl lg:text-5xl">
               What People{" "}
               <span className="bg-gradient-to-r from-accent via-[#7dfff2] to-accent-strong bg-clip-text text-transparent">
                 Say About Us
@@ -56,8 +56,8 @@ export function Testimonials() {
         </SmoothReveal>
 
         {/* Card */}
-        <div className="relative mt-14">
-          <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] p-8 backdrop-blur-sm sm:p-12 lg:p-14">
+        <div className="relative mt-10 sm:mt-14">
+          <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5 backdrop-blur-sm sm:p-12 lg:p-14">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -69,7 +69,7 @@ export function Testimonials() {
               >
                 <StarRating />
 
-                <blockquote className="mt-6 max-w-[600px] text-base leading-[1.8] text-white/70 sm:text-lg sm:leading-[1.9] lg:text-xl lg:leading-[1.8]">
+                <blockquote className="mt-6 max-w-[600px] text-[0.98rem] leading-[1.78] text-white/70 sm:text-lg sm:leading-[1.9] lg:text-xl lg:leading-[1.8]">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
 

@@ -111,7 +111,7 @@ export function ServiceCard({
         transformPerspective: 800,
         willChange: "transform",
       }}
-      className="group relative flex min-h-[400px] flex-col overflow-hidden rounded-2xl border border-line/60 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-[clamp(32px,3.5vw,52px)_clamp(24px,2.8vw,40px)] backdrop-blur-sm transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_44px_rgba(89,255,241,0.05),0_22px_64px_rgba(0,0,0,0.34)]"
+      className="group relative flex min-h-[320px] flex-col overflow-hidden rounded-2xl border border-line/60 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-6 backdrop-blur-sm transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_44px_rgba(89,255,241,0.05),0_22px_64px_rgba(0,0,0,0.34)] sm:min-h-[360px] sm:p-[clamp(32px,3.5vw,52px)_clamp(24px,2.8vw,40px)] lg:min-h-[400px]"
     >
       <CardGlow mouseX={mouseX} mouseY={mouseY} />
 
@@ -140,7 +140,7 @@ export function ServiceCard({
           {title}
         </h3>
 
-        <p className="mt-3 max-w-[34ch] text-[13.5px] leading-[1.8] text-[#8a929e] transition-colors duration-300 group-hover:text-[#a8afbb]">
+        <p className="mt-3 max-w-[34ch] text-[13px] leading-[1.75] text-[#8a929e] transition-colors duration-300 group-hover:text-[#a8afbb] sm:text-[13.5px] sm:leading-[1.8]">
           {body}
         </p>
 

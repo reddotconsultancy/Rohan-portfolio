@@ -29,7 +29,7 @@ function HeroBanner() {
   return (
     <section
       ref={ref}
-      className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-black sm:min-h-[65vh]"
+      className="relative flex min-h-[56svh] items-center justify-center overflow-hidden bg-black sm:min-h-[65vh]"
     >
       <motion.div
         className="absolute inset-0 z-0 bg-[#0a0a0a]"
@@ -50,7 +50,7 @@ function HeroBanner() {
 
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-10 flex flex-col items-center px-6 pt-28 pb-16 text-center"
+        className="relative z-10 flex flex-col items-center px-6 pt-28 pb-14 text-center sm:pb-16"
       >
         <motion.span
           initial={{ opacity: 0, y: 10 }}
@@ -73,7 +73,7 @@ function HeroBanner() {
             duration: 0.8,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="mt-6 font-heading text-5xl font-black text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)] sm:text-6xl lg:text-7xl"
+          className="mt-6 font-heading text-[2.75rem] font-black leading-[1.05] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)] sm:text-6xl lg:text-7xl"
         >
           Our{" "}
           <span className="bg-gradient-to-r from-accent via-[#7dfff2] to-accent bg-clip-text text-transparent">
@@ -85,7 +85,7 @@ function HeroBanner() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="mt-4 max-w-lg text-base leading-relaxed text-white/50"
+          className="mt-4 max-w-lg text-sm leading-relaxed text-white/50 sm:text-base"
         >
           End-to-end capability across strategy, AI, brand, and execution.
           Built for serious businesses.
@@ -118,10 +118,10 @@ function ServiceRow({ service, index }) {
       <Link to={`/${service.slug}`}>
         <TiltCard
           tiltStrength={6}
-          className={`group grid gap-8 overflow-hidden rounded-3xl border border-line/40 bg-white/[0.03] backdrop-blur-sm transition-all duration-500 hover:border-accent/25 hover:shadow-[0_0_80px_rgba(89,255,241,0.05)] lg:grid-cols-[1fr_1fr] lg:gap-0`}
+          className={`group grid gap-5 overflow-hidden rounded-[24px] border border-line/40 bg-white/[0.03] backdrop-blur-sm transition-all duration-500 hover:border-accent/25 hover:shadow-[0_0_80px_rgba(89,255,241,0.05)] sm:gap-8 sm:rounded-3xl lg:grid-cols-[1fr_1fr] lg:gap-0`}
         >
           <div
-            className={`flex flex-col justify-center p-8 lg:p-14 ${
+            className={`flex flex-col justify-center p-5 sm:p-8 lg:p-14 ${
               isEven ? "lg:order-1" : "lg:order-2"
             }`}
           >
@@ -143,11 +143,11 @@ function ServiceRow({ service, index }) {
               )}
             </div>
 
-            <h3 className="mt-6 font-heading text-3xl font-black text-white transition-colors duration-300 group-hover:text-accent sm:text-4xl">
+            <h3 className="mt-5 font-heading text-2xl font-black leading-tight text-white transition-colors duration-300 group-hover:text-accent sm:mt-6 sm:text-4xl">
               {service.title}
             </h3>
 
-            <p className="mt-4 max-w-md text-[14px] leading-[1.85] text-[#8a929e] transition-colors duration-300 group-hover:text-[#a8afbb]">
+            <p className="mt-4 max-w-md text-[13px] leading-[1.75] text-[#8a929e] transition-colors duration-300 group-hover:text-[#a8afbb] sm:text-[14px] sm:leading-[1.85]">
               {service.body}
             </p>
 
@@ -228,7 +228,7 @@ export function ServicesPage() {
       <main>
         <HeroBanner />
 
-        <section className="relative z-10 py-16 lg:py-24">
+        <section className="relative z-10 py-14 sm:py-16 lg:py-24">
           <FloatingOrbs count={4} className="-z-10 opacity-40" />
 
           <div className="mx-auto max-w-[1380px] px-6 lg:px-10">
@@ -245,7 +245,7 @@ export function ServicesPage() {
                   <Sparkles size={12} />
                   Services
                 </motion.span>
-                <h2 className="mt-5 font-heading text-3xl font-black text-white sm:text-4xl lg:text-5xl">
+                <h2 className="mt-5 font-heading text-[2rem] font-black leading-[1.08] text-white sm:text-4xl lg:text-5xl">
                   Explore Our{" "}
                   <span className="bg-gradient-to-r from-accent via-[#7dfff2] to-accent-strong bg-clip-text text-transparent">
                     Best Services
@@ -254,7 +254,7 @@ export function ServicesPage() {
               </div>
             </SmoothReveal>
 
-            <div className="mt-12 flex flex-col gap-8">
+            <div className="mt-10 flex flex-col gap-6 sm:mt-12 sm:gap-8">
               {services.map((service, i) => (
                 <ServiceRow
                   key={service.slug}

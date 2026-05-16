@@ -11,17 +11,17 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="relative z-10 overflow-hidden py-20 sm:py-24 lg:py-32"
+      className="relative z-10 overflow-hidden py-16 sm:py-24 lg:py-32"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
       <div className="pointer-events-none absolute left-[8%] top-20 h-72 w-72 rounded-full bg-accent/[0.025] blur-[90px]" />
 
       <div className="mx-auto max-w-[1380px] px-6 lg:px-10">
         <SmoothReveal>
-          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
             <div>
               <SectionLabel text="Projects" />
-              <h2 className="mt-6 max-w-3xl font-heading text-[clamp(2.75rem,8vw,5.8rem)] font-black leading-[0.98] tracking-tight text-white">
+              <h2 className="mt-5 max-w-3xl font-heading text-[clamp(2.45rem,12vw,5.8rem)] font-black leading-[1] tracking-tight text-white sm:mt-6">
                 Discover Our
                 <br />
                 Completed Work
@@ -30,14 +30,14 @@ export function Projects() {
 
             <Link
               to="/contact-us"
-              className="inline-flex w-fit items-center justify-center rounded-full bg-[#59fff1] px-8 py-4 text-sm font-black uppercase tracking-[0.14em] !text-[#031111] shadow-[inset_0_1px_0_rgba(255,255,255,0.45),0_18px_42px_rgba(89,255,241,0.16)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#7dfff4] hover:!text-[#031111] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_22px_54px_rgba(89,255,241,0.24)]"
+              className="inline-flex w-fit max-w-full items-center justify-center rounded-full bg-[#59fff1] px-7 py-3.5 text-xs font-black uppercase tracking-[0.14em] !text-[#031111] shadow-[inset_0_1px_0_rgba(255,255,255,0.45),0_18px_42px_rgba(89,255,241,0.16)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#7dfff4] hover:!text-[#031111] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_22px_54px_rgba(89,255,241,0.24)] sm:px-8 sm:py-4 sm:text-sm"
             >
               All Projects
             </Link>
           </div>
         </SmoothReveal>
 
-        <div className="relative mt-14 overflow-hidden lg:mt-20">
+        <div className="relative mt-10 overflow-hidden sm:mt-14 lg:mt-20">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-16 bg-gradient-to-r from-background-raised to-transparent sm:w-28" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-16 bg-gradient-to-l from-background-raised to-transparent sm:w-28" />
 
@@ -53,7 +53,7 @@ export function Projects() {
                   duration: 0.55,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="group relative w-[82vw] max-w-[620px] overflow-hidden rounded-[22px] border border-white/8 bg-[#090c10] shadow-[0_18px_70px_rgba(0,0,0,0.32)] transition-all duration-500 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_24px_80px_rgba(0,0,0,0.45)] sm:w-[520px] lg:w-[31vw]"
+                className="group relative w-[84vw] max-w-[620px] overflow-hidden rounded-[20px] border border-white/8 bg-[#090c10] shadow-[0_18px_70px_rgba(0,0,0,0.32)] transition-all duration-500 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_24px_80px_rgba(0,0,0,0.45)] sm:w-[520px] sm:rounded-[22px] lg:w-[31vw]"
               >
                 <div className="relative aspect-[16/9] overflow-hidden bg-black">
                   <img
@@ -65,7 +65,7 @@ export function Projects() {
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10 opacity-70" />
                 </div>
 
-                <div className="flex items-center justify-between gap-4 border-t border-white/[0.06] px-5 py-4">
+                <div className="flex items-center justify-between gap-3 border-t border-white/[0.06] px-4 py-4 sm:gap-4 sm:px-5">
                   <div>
                     <span className="text-[0.65rem] font-black uppercase tracking-[0.18em] text-accent/65">
                       {project.category}

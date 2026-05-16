@@ -81,7 +81,7 @@ export function Services() {
     <section
       id="services"
       ref={sectionRef}
-      className="relative z-10 overflow-hidden py-32 lg:py-44"
+      className="relative z-10 overflow-hidden py-20 sm:py-28 lg:py-44"
     >
       <div className="pointer-events-none absolute inset-0 -z-20">
         <div className="absolute left-1/4 top-0 h-[600px] w-[600px] rounded-full bg-accent/[0.025] blur-[120px]" />
@@ -99,7 +99,7 @@ export function Services() {
             <TextReveal
               text="Explore Our Best Services"
               as="h2"
-              className="mt-5 font-heading text-4xl font-black text-text sm:text-5xl lg:text-6xl"
+              className="mt-5 font-heading text-[2.35rem] font-black leading-[1.08] text-text sm:text-5xl lg:text-6xl"
             />
 
             <motion.p
@@ -107,7 +107,7 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted"
+              className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-muted sm:text-base"
             >
               End-to-end capability across strategy, AI, brand, and
               execution. Built for serious businesses.
@@ -115,7 +115,7 @@ export function Services() {
           </div>
         </SmoothReveal>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3 lg:gap-6">
+        <div className="mt-10 grid gap-5 sm:mt-14 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3 lg:gap-6">
           {services.map((service, i) => (
             <ServiceCard
               key={service.title}

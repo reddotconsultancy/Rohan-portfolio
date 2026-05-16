@@ -72,7 +72,7 @@ function ChapterSection({ label, bgImage, children }) {
     <div
       ref={ref}
       className={`relative overflow-hidden ${
-        bgImage ? "py-20 lg:py-28" : "py-12 lg:py-16"
+        bgImage ? "py-16 sm:py-20 lg:py-28" : "py-10 sm:py-12 lg:py-16"
       }`}
     >
       {/* Background image — always visible, parallax movement */}
@@ -164,7 +164,7 @@ export function AboutPage() {
       <Navbar />
       <main>
         {/* HERO */}
-        <section className="relative z-10 pt-32 pb-8 lg:pt-40 lg:pb-12">
+        <section className="relative z-10 pt-28 pb-8 sm:pt-32 lg:pt-40 lg:pb-12">
           <FloatingOrbs count={3} className="-z-10 opacity-25" />
           <div className="pointer-events-none absolute left-1/2 top-[30%] -z-10 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.035] blur-[100px]" />
 
@@ -177,7 +177,7 @@ export function AboutPage() {
             </FadeUp>
 
             <FadeUp delay={0.1}>
-              <h1 className="relative mt-4 font-heading text-4xl font-black uppercase tracking-wider text-white sm:text-5xl lg:text-[56px]">
+              <h1 className="relative mt-4 font-heading text-[2.45rem] font-black uppercase leading-[1.05] tracking-wide text-white sm:text-5xl sm:tracking-wider lg:text-[56px]">
                 Rohan Dsouza
                 <motion.span
                   className="absolute -bottom-1.5 left-0 h-[3px] rounded-full bg-gradient-to-r from-accent to-accent/30"
@@ -222,7 +222,7 @@ export function AboutPage() {
 
                 <div className="mt-4 rounded-xl border border-white/[0.06] bg-white/[0.025] p-4 backdrop-blur-sm">
                   <p className="mt-0.5 text-[11px] text-accent/60">Founder &bull; {siteInfo.brand}</p>
-                  <div className="mt-2 flex items-center gap-3 text-[10px] text-white/40">
+                  <div className="mt-2 flex flex-wrap items-center gap-2 text-[10px] text-white/40 sm:gap-3">
                     <span className="flex items-center gap-1">
                       <MapPin size={9} className="text-accent/70" />
                       {siteInfo.location}
@@ -318,7 +318,7 @@ export function AboutPage() {
         </ChapterSection>
 
         {/* MILESTONES */}
-        <section className="relative z-10 pt-8 pb-8 lg:pt-10 lg:pb-10">
+        <section className="relative z-10 pt-6 pb-8 sm:pt-8 lg:pt-10 lg:pb-10">
           <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
             <motion.div
               initial={{ opacity: 0, y: 25 }}
@@ -351,13 +351,13 @@ export function AboutPage() {
         </section>
 
         {/* QUOTE */}
-        <section className="relative z-10 pt-8 pb-14 lg:pt-10 lg:pb-20">
+        <section className="relative z-10 pt-6 pb-12 sm:pt-8 sm:pb-14 lg:pt-10 lg:pb-20">
           <div className="pointer-events-none absolute inset-0 -z-10">
             <div className="absolute left-1/2 top-1/2 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.025] blur-[90px]" />
           </div>
           <div className="mx-auto max-w-[850px] px-6 text-center lg:px-10">
             <Sparkles size={18} className="mx-auto mb-4 text-accent/50" />
-            <h3 className="font-heading text-xl font-medium leading-[1.6] text-white sm:text-2xl lg:text-3xl">
+            <h3 className="font-heading text-lg font-medium leading-[1.55] text-white sm:text-2xl lg:text-3xl">
               <WordStagger text="Every number has a system behind it. Every system needs someone who actually cares enough to build it right." />
             </h3>
           </div>
