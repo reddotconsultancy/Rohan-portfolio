@@ -20,7 +20,27 @@ export function Preloader() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    const root = document.documentElement;
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousBodyOverflowY = document.body.style.overflowY;
+    const previousRootOverflow = root.style.overflow;
+    const previousRootOverflowY = root.style.overflowY;
+
+    const lockScroll = () => {
+      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
+      root.style.overflow = "hidden";
+      root.style.overflowY = "hidden";
+    };
+
+    const unlockScroll = () => {
+      document.body.style.overflow = previousBodyOverflow;
+      document.body.style.overflowY = previousBodyOverflowY;
+      root.style.overflow = previousRootOverflow;
+      root.style.overflowY = previousRootOverflowY;
+    };
+
+    lockScroll();
 
     const interval = setInterval(tick, LOAD_DURATION / 60);
 
@@ -34,7 +54,7 @@ export function Preloader() {
     }, LOAD_DURATION + REVEAL_DELAY);
 
     const unlockTimer = setTimeout(() => {
-      document.body.style.overflow = "";
+      unlockScroll();
     }, LOAD_DURATION + REVEAL_DELAY + SPLIT_DURATION * 0.6);
 
     const hideTimer = setTimeout(() => {
@@ -47,7 +67,7 @@ export function Preloader() {
       clearTimeout(revealTimer);
       clearTimeout(unlockTimer);
       clearTimeout(hideTimer);
-      document.body.style.overflow = "";
+      unlockScroll();
     };
   }, [tick]);
 
