@@ -61,9 +61,20 @@ export function LogoStrip() {
     <motion.section
       ref={ref}
       style={{ opacity }}
-      className="relative z-10 overflow-hidden border-y border-line py-7 [contain:paint] sm:py-8"
+      className="relative z-10 overflow-hidden py-14 [contain:paint] sm:py-16 lg:py-18"
     >
-      <div className="space-y-5 sm:space-y-6">
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="relative mx-auto mb-16 px-6 text-center sm:mb-[4.5rem] lg:mb-20"
+      >
+        <h2 className="font-heading text-5xl font-black tracking-[0.02em] text-accent drop-shadow-[0_0_30px_rgba(89,255,241,0.32)] sm:text-6xl">
+          Trusted By
+        </h2>
+      </motion.div>
+      <div className="relative space-y-6 sm:space-y-8">
         <div className="marquee-track logo-marquee-row">
           {topRow.map((logo, i) => (
             <LogoItem key={`top-${logo.name}-${i}`} logo={logo} />
