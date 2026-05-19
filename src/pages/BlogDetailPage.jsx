@@ -51,7 +51,7 @@ export function BlogDetailPage() {
                     </span>
                   </div>
 
-                  <h1 className="max-w-4xl font-heading text-4xl font-black leading-[1.02] text-white sm:text-5xl lg:text-6xl">
+                <h1 className="max-w-4xl font-heading text-3xl font-black leading-[1.06] text-white sm:text-4xl lg:text-5xl">
                     {post.title}
                   </h1>
                   <p className="mt-6 max-w-3xl text-lg leading-[1.8] text-white/68">

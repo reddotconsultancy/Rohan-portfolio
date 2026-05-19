@@ -98,7 +98,7 @@ export function Hero() {
 
         <motion.h1
           variants={item}
-          className="mx-auto mt-12 max-w-5xl font-heading text-[2.55rem] font-black leading-[1.05] tracking-tight text-white sm:mt-16 sm:text-5xl md:text-6xl lg:mt-24 lg:text-[86px]"
+          className="mx-auto mt-12 max-w-5xl font-heading text-[2.35rem] font-black leading-[1.06] tracking-tight text-white sm:mt-16 sm:text-5xl md:text-6xl lg:mt-24 lg:text-[68px]"
         >
           {heroContent.title}
         </motion.h1>

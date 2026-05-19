@@ -151,7 +151,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="font-heading text-3xl font-black uppercase tracking-[0.15em] text-accent sm:text-4xl lg:text-5xl"
+            className="font-heading text-2xl font-black uppercase tracking-[0.15em] text-accent sm:text-3xl lg:text-4xl"
             style={{
               textShadow: "0 0 40px rgba(89,255,241,0.3), 0 0 80px rgba(89,255,241,0.1)",
             }}

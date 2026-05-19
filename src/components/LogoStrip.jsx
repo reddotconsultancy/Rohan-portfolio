@@ -70,7 +70,7 @@ export function LogoStrip() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="relative mx-auto mb-16 px-6 text-center sm:mb-[4.5rem] lg:mb-20"
       >
-        <h2 className="font-heading text-5xl font-black tracking-[0.02em] text-accent drop-shadow-[0_0_30px_rgba(89,255,241,0.32)] sm:text-6xl">
+        <h2 className="font-heading text-3xl font-black tracking-[0.02em] text-accent drop-shadow-[0_0_30px_rgba(89,255,241,0.32)] sm:text-4xl lg:text-5xl">
           Trusted By
         </h2>
       </motion.div>

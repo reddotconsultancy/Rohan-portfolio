@@ -73,7 +73,7 @@ function HeroBanner() {
             duration: 0.8,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="mt-6 font-heading text-[2.75rem] font-black leading-[1.05] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)] sm:text-6xl lg:text-7xl"
+          className="mt-6 font-heading text-[2.3rem] font-black leading-[1.06] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)] sm:text-5xl lg:text-6xl"
         >
           Our{" "}
           <span className="bg-gradient-to-r from-accent via-[#7dfff2] to-accent bg-clip-text text-transparent">

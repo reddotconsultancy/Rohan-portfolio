@@ -156,12 +156,87 @@ function FloatingWidget({ widget, index }) {
 
 function ContactForm() {
   const [focused, setFocused] = useState("");
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState({
+    type: "idle",
+    message: "",
+    href: "",
+  });
 
   const fields = [
-    { id: "name", label: "Your Name", type: "text" },
-    { id: "email", label: "Email Address", type: "email" },
-    { id: "subject", label: "Subject", type: "text" },
+    { id: "name", label: "Your Name", type: "text", required: true },
+    { id: "email", label: "Email Address", type: "email", required: true },
+    { id: "subject", label: "Subject", type: "text", required: false },
   ];
+
+  const updateField = (field, value) => {
+    setValues((current) => ({ ...current, [field]: value }));
+    if (status.type !== "idle") {
+      setStatus({ type: "idle", message: "", href: "" });
+    }
+  };
+
+  const getDirectEmailHref = () => {
+    const to = siteInfo.leadEmail || siteInfo.email;
+    const subject = values.subject.trim() || "Website enquiry";
+    const body = [
+      `Name: ${values.name.trim()}`,
+      `Email: ${values.email.trim()}`,
+      "",
+      values.message.trim(),
+    ].join("\n");
+
+    return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!values.name.trim() || !values.email.trim() || !values.message.trim()) {
+      setStatus({
+        type: "error",
+        message: "Please add your name, email, and message.",
+        href: "",
+      });
+      return;
+    }
+
+    setStatus({ type: "sending", message: "Sending your message...", href: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.message || "Could not send the message.");
+      }
+
+      setValues({ name: "", email: "", subject: "", message: "" });
+      setFocused("");
+      setStatus({
+        type: "success",
+        message: result.message || "Message sent. Rohan will get back to you soon.",
+        href: "",
+      });
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message:
+          error.message ||
+          `Something went wrong. Please email ${siteInfo.leadEmail || siteInfo.email} directly.`,
+        href: getDirectEmailHref(),
+      });
+    }
+  };
 
   return (
     <TiltCard
@@ -186,20 +261,17 @@ function ContactForm() {
           Drop us a line and we will get back within 24 hours.
         </p>
 
-        <form
-          className="mt-8 space-y-5"
-          onSubmit={(e) => e.preventDefault()}
-        >
+        <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
           {fields.map((f) => (
             <div key={f.id} className="relative">
               <motion.label
                 className={`pointer-events-none absolute left-4 text-[12px] font-semibold uppercase tracking-[0.15em] transition-all duration-300 ${
-                  focused === f.id
+                  focused === f.id || values[f.id]
                     ? "top-2 text-accent"
                     : "top-4 text-muted/50"
                 }`}
                 animate={
-                  focused === f.id
+                  focused === f.id || values[f.id]
                     ? { y: 0, fontSize: "10px" }
                     : { y: 0, fontSize: "12px" }
                 }
@@ -208,10 +280,14 @@ function ContactForm() {
               </motion.label>
               <input
                 type={f.type}
+                name={f.id}
+                value={values[f.id]}
+                required={f.required}
                 onFocus={() => setFocused(f.id)}
                 onBlur={(e) => {
                   if (!e.target.value) setFocused("");
                 }}
+                onChange={(event) => updateField(f.id, event.target.value)}
                 className={`w-full rounded-xl border bg-white/[0.02] px-4 pb-3 pt-7 text-sm text-white outline-none backdrop-blur-md transition-all duration-300 ${
                   focused === f.id
                     ? "border-accent/40 shadow-[0_0_20px_rgba(89,255,241,0.06)]"
@@ -224,7 +300,7 @@ function ContactForm() {
           <div className="relative">
             <motion.label
               className={`pointer-events-none absolute left-4 text-[12px] font-semibold uppercase tracking-[0.15em] transition-all duration-300 ${
-                focused === "message"
+                focused === "message" || values.message
                   ? "top-2 text-accent"
                   : "top-4 text-muted/50"
               }`}
@@ -233,10 +309,14 @@ function ContactForm() {
             </motion.label>
             <textarea
               rows={4}
+              name="message"
+              value={values.message}
+              required
               onFocus={() => setFocused("message")}
               onBlur={(e) => {
                 if (!e.target.value) setFocused("");
               }}
+              onChange={(event) => updateField("message", event.target.value)}
               className={`w-full resize-none rounded-xl border bg-white/[0.02] px-4 pb-3 pt-7 text-sm text-white outline-none backdrop-blur-md transition-all duration-300 ${
                 focused === "message"
                   ? "border-accent/40 shadow-[0_0_20px_rgba(89,255,241,0.06)]"
@@ -247,7 +327,8 @@ function ContactForm() {
 
           <motion.button
             type="submit"
-            className="group flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 font-heading text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-[0_0_40px_rgba(89,255,241,0.25)]"
+            disabled={status.type === "sending"}
+            className="group flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 font-heading text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-[0_0_40px_rgba(89,255,241,0.25)] disabled:cursor-not-allowed disabled:opacity-70"
             style={{ color: "#000000" }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -256,8 +337,32 @@ function ContactForm() {
               size={16}
               className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             />
-            Send Message
+            {status.type === "sending" ? "Sending..." : "Send Message"}
           </motion.button>
+
+          {status.message && (
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              className={`rounded-xl border px-4 py-3 text-sm ${
+                status.type === "success"
+                  ? "border-accent/25 bg-accent/[0.08] text-accent"
+                  : status.type === "error"
+                    ? "border-red-400/20 bg-red-400/[0.08] text-red-200"
+                    : "border-white/10 bg-white/[0.04] text-white/62"
+              }`}
+            >
+              <p>{status.message}</p>
+              {status.href && (
+                <a
+                  href={status.href}
+                  className="mt-2 inline-flex font-heading text-xs font-black uppercase tracking-[0.14em] text-accent underline-offset-4 hover:underline"
+                >
+                  Open email instead
+                </a>
+              )}
+            </motion.div>
+          )}
         </form>
       </div>
     </TiltCard>
@@ -360,7 +465,7 @@ export function ContactPage() {
             </SmoothReveal>
 
             <motion.h1
-              className="mt-6 font-heading text-[2.35rem] font-black leading-[1.08] text-white sm:text-5xl lg:text-6xl"
+              className="mt-6 font-heading text-[2.1rem] font-black leading-[1.08] text-white sm:text-4xl lg:text-5xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.7 }}

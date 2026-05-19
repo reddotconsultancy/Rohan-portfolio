@@ -3,6 +3,7 @@ export const siteInfo = {
   brand: "Digital AI Agency",
   url: "https://rohandsouza.xyz",
   email: "hello@rohandsouza.xyz",
+  leadEmail: "founder@rohandsouza.xyz",
   phone: "+91 8861778166",
   phoneHref: "tel:+918861778166",
   location: "Bangalore, India",
@@ -56,38 +57,83 @@ export const whyItems = [
 export const projects = [
   {
     title: "SIAA",
+    slug: "siaa",
     category: "Campaign Strategy",
     description:
       "Built audience personas, campaign messaging, and search-led acquisition strategy for a national producer alliance.",
     image: "/images/IMG_6210.png",
+    client:
+      "The largest alliance of independent insurance agencies in the US, recruiting the next generation of producers.",
+    problem:
+      "Career producers with entrepreneurial potential were actively searching for a path forward, but the existing campaign relied on broad, low-intent search traffic.",
+    solution:
+      "Audience personas, messaging, landing-page structure, search intent mapping, and programmatic advertising were rebuilt around producer motivations.",
+    outcome:
+      "Conversions increased 173%, cost per acquisition dropped 64%, and the campaign became a repeatable growth partnership.",
   },
   {
     title: "MyTelemedicine",
+    slug: "mytelemedicine",
     category: "Healthcare Growth",
     description:
       "Designed paid search, traffic allocation, and acquisition strategy for a white-label telehealth platform.",
     image: "/images/IMG_6208.JPG.jpeg",
+    client:
+      "A white-label telehealth platform trusted by more than 100 brands serving millions of patients across the US.",
+    problem:
+      "Inbound quality needed to improve while spend efficiency tightened across B2B healthcare decision makers.",
+    solution:
+      "High-intent B2B keywords, granular audience segmentation, custom landing pages, performance-max allocation, and live budget rebalancing.",
+    outcome:
+      "Lead volume increased 50%, cost per acquisition dropped 60%, and lead quality improved 2x to 3x.",
   },
   {
     title: "IFF",
+    slug: "iff",
     category: "Global Brand",
     description:
       "Created a comprehensive brand playbook and unified positioning framework for a global scent and taste leader.",
     image: "/images/IMG_6207.JPG.jpeg",
+    client:
+      "A global leader in scent, taste, nutrition, and health solutions used in food, beverage, personal care, and home care.",
+    problem:
+      "Multiple technologies and brands had been positioned differently across regions, leaving internal and external communication fragmented.",
+    solution:
+      "A comprehensive brand playbook covering verbal identity, messaging, tone of voice, imagery, guidelines, and positioning.",
+    outcome:
+      "A cohesive framework that global teams could use quickly, consistently, and at scale.",
   },
   {
     title: "Belkin",
+    slug: "belkin",
     category: "Brand Systems",
     description:
       "Created practical brand and messaging systems for a consumer electronics partner network.",
     image: "/images/IMG_9362.png",
+    client:
+      "The B2B division of a well-known consumer electronics brand serving workplace technology buyers.",
+    problem:
+      "The reliability and efficiency of the business were not reflected clearly enough across partner communication and sales material.",
+    solution:
+      "Brand guidelines, tone of voice, color systems, typography, photography direction, and a microsite structure for professional products.",
+    outcome:
+      "A sharper partner-facing system that made collateral, sales assets, and product communication feel consistent and premium.",
   },
   {
     title: "APS Payroll",
+    slug: "aps-payroll",
     category: "Website & Revenue",
     description:
       "Rebuilt the web presence and conversion path for a long-standing HR and payroll platform.",
     image: "/images/IMG_9361.png",
+    client:
+      "A long-standing HR and payroll platform with a genuinely strong product and white-glove support model.",
+    problem:
+      "The website made the company look like a smaller vendor in a market where competitors appeared more credible at first glance.",
+    solution:
+      "A multi-path conversion flow, Salesforce integration, sharper product pages, SEO-led content, and leadership visibility.",
+    outcome:
+      "Engaged sessions increased 203% through paid channels and conversions increased 72%.",
   },
 ];
 

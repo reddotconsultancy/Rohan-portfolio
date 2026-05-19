@@ -6,6 +6,7 @@ import { ServicesPage } from "./pages/ServicesPage";
 import { ServiceDetailPage } from "./pages/ServiceDetailPage";
 import { ContactPage } from "./pages/ContactPage";
 import { BlogDetailPage } from "./pages/BlogDetailPage";
+import { ProjectsPage } from "./pages/ProjectsPage";
 import { CursorFollower } from "./components/ui/CursorFollower";
 import { Preloader } from "./components/ui/Preloader";
 import { SeoManager } from "./components/SeoManager";
@@ -39,6 +40,7 @@ function AnimatedRoutes() {
           <Route path="/about-me" element={<AboutPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/contact-us" element={<ContactPage />} />
           <Route path="/blog/:slug" element={<BlogDetailPage />} />
           <Route path="/:slug" element={<ServiceDetailPage />} />

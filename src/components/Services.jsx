@@ -99,7 +99,7 @@ export function Services() {
             <TextReveal
               text="Explore Our Best Services"
               as="h2"
-              className="mt-5 font-heading text-[2.35rem] font-black leading-[1.08] text-text sm:text-5xl lg:text-6xl"
+              className="mt-5 font-heading text-[2.15rem] font-black leading-[1.08] text-text sm:text-4xl lg:text-5xl"
             />
 
             <motion.p

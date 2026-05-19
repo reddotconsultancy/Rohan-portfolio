@@ -58,7 +58,7 @@ export function CTA() {
             <TextReveal
               text="Let's Create Something Great Together"
               as="h2"
-              className="mx-auto max-w-3xl font-heading text-[2rem] font-black leading-[1.08] text-text sm:text-4xl lg:text-5xl xl:text-6xl"
+              className="mx-auto max-w-3xl font-heading text-[2rem] font-black leading-[1.08] text-text sm:text-4xl lg:text-5xl"
             />
 
             <motion.p

@@ -77,6 +77,16 @@ function pageMeta(pathname) {
     };
   }
 
+  if (cleanPath === "/projects") {
+    return {
+      title: "Completed Work and Case Studies | Rohan Dsouza",
+      description:
+        "View detailed case studies across GTM strategy, healthcare growth, global brand systems, B2B positioning, and revenue-focused website work.",
+      path: "/projects",
+      type: "website",
+    };
+  }
+
   if (cleanPath === "/contact-us") {
     return {
       title: "Work With Rohan Dsouza | Strategy Call",

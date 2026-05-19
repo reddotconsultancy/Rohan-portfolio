@@ -194,7 +194,7 @@ function HeroSection({ data, slug }) {
                 transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
               },
             }}
-            className="mt-6 max-w-3xl font-heading text-4xl font-black leading-[1.05] text-white sm:text-5xl lg:text-7xl"
+            className="mt-6 max-w-3xl font-heading text-3xl font-black leading-[1.06] text-white sm:text-4xl lg:text-5xl"
           >
             {data.title}
           </motion.h1>
