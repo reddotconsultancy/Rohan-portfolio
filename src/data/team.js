@@ -7,7 +7,7 @@ export const siteInfo = {
   phone: "+91 8861778166",
   phoneHref: "tel:+918861778166",
   location: "Bangalore, India",
-  calendly: "https://calendly.com/founder-rohandsouza/30min",
+  calendly: "https://calendly.com/rohan-dsouza-aryng/strategy-war-room",
   tagline: "Intelligence. Innovation. Impact",
   linkedin: "https://www.linkedin.com/in/rohan-dsouza1/",
   instagram: "https://www.instagram.com/unlearnwithrohan?igsh=Mjl5YTJjMDg5a3Bk&utm_source=qr",
