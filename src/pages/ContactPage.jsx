@@ -212,7 +212,7 @@ function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, botField }),
       });
       const result = await response.json().catch(() => ({}));
 
@@ -238,6 +238,9 @@ function ContactForm() {
     }
   };
 
+  /* honeypot – hidden from real users, bots fill it */
+  const [botField, setBotField] = useState("");
+
   return (
     <TiltCard
       tiltStrength={4}
@@ -261,108 +264,106 @@ function ContactForm() {
           Drop us a line and we will get back within 24 hours.
         </p>
 
-        <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
+        {/* Hidden honeypot – invisible to humans */}
+        <input
+          type="text"
+          name="botField"
+          value={botField}
+          onChange={(e) => setBotField(e.target.value)}
+          aria-hidden="true"
+          tabIndex={-1}
+          autoComplete="off"
+          style={{ display: "none" }}
+        />
+
+        <form onSubmit={handleSubmit} noValidate className="mt-7 space-y-4">
           {fields.map((f) => (
             <div key={f.id} className="relative">
-              <motion.label
-                className={`pointer-events-none absolute left-4 text-[12px] font-semibold uppercase tracking-[0.15em] transition-all duration-300 ${
-                  focused === f.id || values[f.id]
-                    ? "top-2 text-accent"
-                    : "top-4 text-muted/50"
-                }`}
-                animate={
-                  focused === f.id || values[f.id]
-                    ? { y: 0, fontSize: "10px" }
-                    : { y: 0, fontSize: "12px" }
-                }
+              <input
+                id={f.id}
+                type={f.type}
+                required={f.required}
+                value={values[f.id]}
+                onChange={(e) => updateField(f.id, e.target.value)}
+                onFocus={() => setFocused(f.id)}
+                onBlur={() => setFocused("")}
+                placeholder=" "
+                className="peer w-full rounded-xl border border-line/30 bg-white/[0.03] px-4 pt-6 pb-2 text-sm text-white outline-none transition-all duration-300 placeholder-transparent focus:border-accent/50 focus:ring-1 focus:ring-accent/30"
+              />
+              <label
+                htmlFor={f.id}
+                className="pointer-events-none absolute left-4 top-2 text-[10px] font-semibold uppercase tracking-widest text-accent/60 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-placeholder-shown:text-muted/50 peer-focus:top-2 peer-focus:text-[10px] peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-accent/60"
               >
                 {f.label}
-              </motion.label>
-              <input
-                type={f.type}
-                name={f.id}
-                value={values[f.id]}
-                required={f.required}
-                onFocus={() => setFocused(f.id)}
-                onBlur={(e) => {
-                  if (!e.target.value) setFocused("");
-                }}
-                onChange={(event) => updateField(f.id, event.target.value)}
-                className={`w-full rounded-xl border bg-white/[0.02] px-4 pb-3 pt-7 text-sm text-white outline-none backdrop-blur-md transition-all duration-300 ${
-                  focused === f.id
-                    ? "border-accent/40 shadow-[0_0_20px_rgba(89,255,241,0.06)]"
-                    : "border-line/40 hover:border-line/60"
-                }`}
-              />
+                {f.required && " *"}
+              </label>
             </div>
           ))}
 
           <div className="relative">
-            <motion.label
-              className={`pointer-events-none absolute left-4 text-[12px] font-semibold uppercase tracking-[0.15em] transition-all duration-300 ${
-                focused === "message" || values.message
-                  ? "top-2 text-accent"
-                  : "top-4 text-muted/50"
+            <textarea
+              id="message"
+              required
+              rows={5}
+              value={values.message}
+              onChange={(e) => updateField("message", e.target.value)}
+              onFocus={() => setFocused("message")}
+              onBlur={() => setFocused("")}
+              placeholder=" "
+              className="peer w-full resize-none rounded-xl border border-line/30 bg-white/[0.03] px-4 pt-6 pb-2 text-sm text-white outline-none transition-all duration-300 placeholder-transparent focus:border-accent/50 focus:ring-1 focus:ring-accent/30"
+            />
+            <label
+              htmlFor="message"
+              className="pointer-events-none absolute left-4 top-2 text-[10px] font-semibold uppercase tracking-widest text-accent/60 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-placeholder-shown:text-muted/50 peer-focus:top-2 peer-focus:text-[10px] peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-accent/60"
+            >
+              Message *
+            </label>
+          </div>
+
+          {/* Status banner */}
+          {status.message && (
+            <motion.div
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              className={`rounded-xl border px-4 py-3 text-sm ${
+                status.type === "success"
+                  ? "border-accent/30 bg-accent/10 text-accent"
+                  : status.type === "error"
+                  ? "border-red-500/30 bg-red-500/10 text-red-400"
+                  : "border-line/20 bg-white/[0.03] text-muted"
               }`}
             >
-              Your Message
-            </motion.label>
-            <textarea
-              rows={4}
-              name="message"
-              value={values.message}
-              required
-              onFocus={() => setFocused("message")}
-              onBlur={(e) => {
-                if (!e.target.value) setFocused("");
-              }}
-              onChange={(event) => updateField("message", event.target.value)}
-              className={`w-full resize-none rounded-xl border bg-white/[0.02] px-4 pb-3 pt-7 text-sm text-white outline-none backdrop-blur-md transition-all duration-300 ${
-                focused === "message"
-                  ? "border-accent/40 shadow-[0_0_20px_rgba(89,255,241,0.06)]"
-                  : "border-line/40 hover:border-line/60"
-              }`}
-            />
-          </div>
+              {status.message}
+              {status.href && (
+                <>
+                  {" "}
+                  <a
+                    href={status.href}
+                    className="underline underline-offset-2 hover:text-accent"
+                  >
+                    Open email instead
+                  </a>
+                </>
+              )}
+            </motion.div>
+          )}
 
           <motion.button
             type="submit"
             disabled={status.type === "sending"}
-            className="group flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 font-heading text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-[0_0_40px_rgba(89,255,241,0.25)] disabled:cursor-not-allowed disabled:opacity-70"
-            style={{ color: "#000000" }}
             whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            whileTap={{ scale: 0.97 }}
+            className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-[#7dfff2] px-6 py-3.5 font-heading text-sm font-bold text-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(89,255,241,0.25)] disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <Send
-              size={16}
-              className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            />
-            {status.type === "sending" ? "Sending..." : "Send Message"}
+            {status.type === "sending" ? (
+              "Sending…"
+            ) : (
+              <>
+                <Send size={15} strokeWidth={2} />
+                Send Message
+              </>
+            )}
           </motion.button>
-
-          {status.message && (
-            <motion.div
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              className={`rounded-xl border px-4 py-3 text-sm ${
-                status.type === "success"
-                  ? "border-accent/25 bg-accent/[0.08] text-accent"
-                  : status.type === "error"
-                    ? "border-red-400/20 bg-red-400/[0.08] text-red-200"
-                    : "border-white/10 bg-white/[0.04] text-white/62"
-              }`}
-            >
-              <p>{status.message}</p>
-              {status.href && (
-                <a
-                  href={status.href}
-                  className="mt-2 inline-flex font-heading text-xs font-black uppercase tracking-[0.14em] text-accent underline-offset-4 hover:underline"
-                >
-                  Open email instead
-                </a>
-              )}
-            </motion.div>
-          )}
         </form>
       </div>
     </TiltCard>

@@ -1,5 +1,18 @@
 import nodemailer from "nodemailer";
 
+// Simple in‑memory rate limiter (IP → timestamps)
+const rateLimits = new Map();
+const RATE_LIMIT_MAX = 5; // max requests per window
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+function isRateLimited(ip) {
+  const now = Date.now();
+  const timestamps = rateLimits.get(ip) || [];
+  const recent = timestamps.filter(t => now - t < RATE_LIMIT_WINDOW_MS);
+  recent.push(now);
+  rateLimits.set(ip, recent);
+  return recent.length > RATE_LIMIT_MAX;
+}
+
 const DEFAULT_TO_EMAIL = "founder@rohandsouza.xyz";
 const DEFAULT_SMTP_HOST = "smtp.hostinger.com";
 const DEFAULT_SMTP_PORT = 465;
@@ -84,6 +97,7 @@ function getEmailContent({ name, email, subject, message }) {
 async function sendWithResend({ name, email, subject, content }) {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.RESEND_TO_EMAIL || process.env.LEAD_TO_EMAIL || DEFAULT_TO_EMAIL;
+  const cc = process.env.RESEND_CC_EMAIL;
   const from = process.env.RESEND_FROM_EMAIL || process.env.LEAD_FROM_EMAIL;
 
   if (!apiKey || !from) {
@@ -102,12 +116,14 @@ async function sendWithResend({ name, email, subject, content }) {
     body: JSON.stringify({
       from,
       to: [to],
+      ...(cc && { cc: [cc] }),
       subject: `New website lead: ${subject}`,
       reply_to: email,
       text: content.text,
       html: content.html,
       tags: [
         { name: "source", value: "rohan_website" },
+        { name: "date", value: new Date().toISOString().split("T")[0] },
         { name: "lead_name", value: name.replace(/[^a-z0-9_-]/gi, "_").slice(0, 50) || "lead" },
       ],
     }),
@@ -186,6 +202,18 @@ export default async function handler(req, res) {
   }
 
   const body = parseBody(req);
+  const botField = clean(body.botField);
+  // Honeypot – reject if filled
+  if (botField) {
+    return res.status(400).json({ ok: false, message: "Bad request." });
+  }
+
+  // Rate limiting based on client IP
+  const clientIp = (req.headers['x-forwarded-for'] || req.socket?.remoteAddress || "").split(',')[0].trim();
+  if (isRateLimited(clientIp)) {
+    return res.status(429).json({ ok: false, message: "Too many requests, please try again later." });
+  }
+
   const name = clean(body.name, 120);
   const email = clean(body.email, 180);
   const subject = clean(body.subject, 180) || "Website enquiry";

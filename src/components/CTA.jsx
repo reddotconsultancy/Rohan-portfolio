@@ -84,7 +84,7 @@ export function CTA() {
             >
               <MagneticWrap strength={0.15}>
                 <a
-                  href={siteInfo.calendly}
+                  href="/contact"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 font-heading text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.04] sm:px-8 sm:text-sm"
